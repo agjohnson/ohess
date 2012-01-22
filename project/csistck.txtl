@@ -1,0 +1,50 @@
+<div class="col-2">
+
+h1. csistck - Consistency Check
+
+Csistck is a small Perl framework for writing scripts to maintain system 
+configuration and consistency. The focus of csistck is to stay lightweight, simple,
+and flexible
+
+h2. Project Scope
+
+Csistck started as a small library for maintaining servers. Built on the 
+principle of a simple, flexible framework for writing maintenance scripts,
+csistck is well suited for small admin teams.
+
+For more information, see the "project background":/pub/csistck-background
+
+h2. Examples
+
+Coming soon. For now, there are some examples in the documentation, as well
+as a more complete example in "Managing Servers with csistck":/pub/csistck-maintenance
+
+</div>
+<div class="col">
+
+h2. Source
+
+* "Bitbucket":https://bitbucket.org/agj/csistck
+* "Github":https://github.com/agjohnson/csistck
+
+h2. Notes
+
+* "Project Background":/pub/csistck_background
+* "Managing Servers with csistck":/pub/csistck_maintenance
+
+h2. Links
+
+* "Csistck on CPAN":http://search.cpan.org/dist/Csistck
+* "Issues":https://bitbucket.org/agj/csistck/issues
+
+h2. Documentation
+
+* "Csistck":http://search.cpan.org/dist/Csistck/lib/Csistck.pm
+* "Csistck::Test::File":http://search.cpan.org/dist/Csistck/lib/Csistck/Test/File.pm
+* "Csistck::Test::Template":http://search.cpan.org/dist/Csistck/lib/Csistck/Test/Template.pm
+* "Csistck::Test::Permission":http://search.cpan.org/dist/Csistck/lib/Csistck/Test/Permission.pm
+* "Csistck::Test::Script":http://search.cpan.org/dist/Csistck/lib/Csistck/Test/Script.pm
+* "Csistck::Test::Pkg":http://search.cpan.org/dist/Csistck/lib/Csistck/Test/Pkg.pm
+* "Csistck::Test::NOOP":http://search.cpan.org/dist/Csistck/lib/Csistck/Test/NOOP.pm
+
+</div>

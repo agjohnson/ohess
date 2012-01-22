@@ -1,0 +1,40 @@
+[% PROCESS 'lib/header.tt' %]
+
+<div class="row">
+
+    [% IF meta;
+       
+        col1 = [];
+        col2 = [];
+        col3 = [];
+        currentcol = '1';
+
+        FOREACH article = meta.featured;
+            IF currentcol == 1;
+                col1.push(article);
+                currentcol = 2;
+            ELSIF currentcol == 2;
+                col2.push(article);
+                currentcol = 3;
+            ELSE;
+                col3.push(article);
+                currentcol = 1;
+            END;
+        END;
+    END %]
+
+    [% FOREACH col = [ col1, col2, col3 ] %]
+    <div class="col">
+        [% FOREACH article = col %]
+        <h2>[% article.title %]</h2>
+        <p>[% article.excerpt.html() %]</p>
+            [% IF article.link %]
+        <p><a href="[% article.link %]">Continue reading...</a></p>
+            [% END %]
+        [% END %]
+    </div>
+    [% END %]
+
+</div>
+
+[% PROCESS 'lib/footer.tt' date="$date"%]

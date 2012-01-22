@@ -1,0 +1,88 @@
+h1. The Background of csistck
+
+Over the last several years working for my employer, I have increased the number of 
+servers running on our network by 5 or 6-fold. This, of course, has greatly increased
+the complexity of the network, and managing the network, which prompted me to find
+a tool to keep servers and services in a consistent state.
+
+I evaluated the majority of current configuration management tools, and while they
+all worked without issue, I found each was lacking in one or more ways for
+our usage case.
+
+h2. The Motivation
+
+I decided a small Perl library could address some of these issues, and this eventually 
+turned into "csistck":/projects/csistck. The scope of the project was limited, by design:
+
+* Don't define a new language syntax.
+* Don't use a markup language.
+* No expected directory structure -- everything can be defined in one file.
+* Do the bare minimum -- check and install files, change permissions, and run scripts, that's it.
+* Oh, and do templating!
+* Don't handle file transfer.
+* No daemon and no client.
+
+Implementing csistck as a library allows for full Perl syntax when defining hosts
+and roles, allowing for very simple definition of complex networks. There are no
+extraneous functions, anything outside the basic scope of installing files should
+be implemented as a script -- scripts can be written in any language. This also
+leaves file transfer and access control up to the user -- whether through git, git
+and gitosis, HTTPS with authentication, FTP, etc.
+
+h3. Package Management
+
+I'm on the fence about this. It seems like a common enough check to include in
+the core of the project. However, it could also be left up to the user to 
+explicitly include a package check/install script. I've included the start
+of some package management functions in the core already, if I remove these 
+calls, they will still be available as non-core modules.
+
+The largest hurdle will be pkgsrc and FreeBSD ports. If I can script checks for
+these, I may just script the install functions as warnings that manual 
+intervention is required. In this case, package management will stay core.
+
+h2. Example
+
+Here is a brief example showing three hosts managed by a single script. This 
+script checks several packages are installed and installs a template file 
+over the existing motd files.
+
+<pre class="prettyprint">
+<code>
+#!/usr/bin/env perl
+
+use Csistck;
+
+
+option "domain_name" => "example.com";
+option "pkg_type" => "dpkg";
+option "backup_path" => "/tmp/backup";
+
+
+# Hosts definitions
+
+# Common host node roles
+for my $hn (qw/host1 host2 host3/) {
+    host $hn =>
+      role('sys.prod'),
+}
+
+role 'sys.prod' =>
+  role('sys'),
+  template("sys/motd.tt", "/etc/motd", { mode => "production" }),
+  template("sys/motd.tt", "/etc/motd.tail", { mode => "production" }),
+  template("sys/motd.tt", "/var/run/motd", { mode => "production" });
+
+role 'sys' =>
+  pkg('openssh-server'),
+  pkg('tcsh'),
+  pkg('mercurial'),
+  pkg('vim');
+
+check;
+</code>
+</pre>
+
+<script src="/static/js/prettify.js"></script>
+<script> $(document).ready(function() { prettyPrint(); }); </script>
+

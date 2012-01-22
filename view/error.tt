@@ -1,0 +1,25 @@
+[% PROCESS 'lib/header.tt' %]
+
+        <div class="row">
+          
+          <div class="col-2">
+            <object width="425" height="349"><param name="movie" value="http://www.youtube.com/v/3GWJC7tlYck?fs=1&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/3GWJC7tlYck?fs=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="349"></embed></object>
+          </div>
+
+          <div class="col">
+            
+            [% IF error == 404 %]
+            <h1>Error 404</h1>
+            <p>The page you requested is nowhere to be found.</p>
+            [% ELSE %]
+            <h1>Error</h1>
+            <p>Something happened, but we don't know what.</p>
+            [% END %]
+            
+            <p>Here's Norm MacDonald telling a joke instead.</p>
+
+          </div>
+
+        </div>
+
+[% PROCESS 'lib/footer.tt' %]

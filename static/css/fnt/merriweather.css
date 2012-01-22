@@ -1,0 +1,23 @@
+/*
+typeface: Merriweather 
+author: Eben Sorkin
+url: http://ebensorkin.wordpress.com/
+*/
+
+@font-face {
+    font-family: "Merriweather";
+    font-style: normal;
+    font-weight: normal;
+    src: local('Merriweather'), 
+      url('Merriweather-Regular.ttf') format('woff');
+}
+
+@font-face {
+    font-family: "Merriweather";
+    font-style: normal;
+    font-weight: 700;
+    src: local('Merriweather Bold'), 
+      local('Merriweather-Bold'), 
+      url('Merriweather-Bold.ttf') format('woff');
+}
+

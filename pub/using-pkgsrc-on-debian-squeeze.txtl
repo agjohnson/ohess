@@ -1,0 +1,138 @@
+
+h1(#install). Using pkgsrc on Debian Squeeze
+
+After hitting some issues with glibc while setting up pkgsrc on Centos[1],
+I revisited setting up a Debian squeeze server with pkgsrc. Here are some notes on 
+setting pkgsrc up to build.
+
+First, get build requirements for bootstrapping:
+
+<pre class="prettyprint">
+apt-get install cvs build-essential
+</pre>
+
+Next, checkout and bootstrap pkgsrc:
+
+<pre class="prettyprint">
+cd /usr
+cvs -d anoncvs@anoncvs.NetBSD.org:/cvsroot checkout -rpkgsrc-2011Q1 pkgsrc
+</pre>
+
+Make sure to pay attention to the current pkgsrc release.
+
+You should have @/usr/pkgsrc@ now, start by bootstraping:
+
+<pre class="prettyprint">
+cd /usr/pkgsrc/bootstrap
+export SH=/bin/bash
+./bootstrap
+</pre>
+
+The second command is a work around for the following, otherwise tripped, error:
+
+<pre class="prettyprint">
+a:/usr/pkgsrc/bootstrap# ./bootstrap 
+ERROR: Your shell's echo command is not BSD-compatible.
+ERROR: Please select another shell by setting the environment
+ERROR: variable SH.
+</pre>
+
+As with any pkgsrc install, make sure /usr/pkg/{bin,sbin} is in your PATH env
+variable (assuming your shell is bash):
+
+<pre class="prettyprint">
+export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
+</pre>
+
+h2(#build). Building a Package
+
+Much like the last attempt at using pkgsrc on Centos, you will need the
+ncurses development headers:
+
+<pre class="prettyprint">
+apt-get install libncurses5-dev
+</pre>
+
+Without going into much detail, because my boxes are virtualized on Xen with
+Rackspace's cloud, I can assume they will be running the same kernel version.
+Using a cluster of Debian servers with the same release, on the same
+kernel allows me to use one server as a pkgsrc build server, pulling in 
+binary packages from the other servers.
+
+So, here, you would build from pkgsrc, I'll just install from a binary package
+now that we're bootstrapped.
+
+h2(#rc). Setting up rc.subr
+
+Also, as mentioned[2], sysv-rc is far more compatible with pkgsrc init scripts
+and although some manual work is required, init scripts are easily maintained.
+
+First, install @rc.subr@, this will still be used by pkgsrc init scripts:
+
+<pre class="prettyprint">
+cd /usr/pkgsrc/pkgtools/rc.subr
+bmake
+bmake install
+</pre>
+
+Not a requirement, but I like to move the rc.d directory location to 
+@/usr/pkg/etc/rc.d@ to differentiate between the system init.d and pkgsrc rc.d
+paths. I add the following to @/usr/pkg/etc/mk.conf@:
+
+<pre class="prettyprint">
+RCD_SCRIPTS_DIR = /usr/pkg/etc/rc.d
+</pre>
+
+Once built and installed, @rc.subr@ requires one change:
+
+<pre class="prettyprint">
+--- /etc/rc.subr~       2011-04-23 06:02:34.000000000 +0000
++++ /etc/rc.subr        2011-04-23 06:03:01.000000000 +0000
+@@ -56,7 +56,7 @@
+ _RCCMD_rcs="/usr/bin/rcs"
+ _RCCMD_rm="/bin/rm"
+ _RCCMD_sh="/bin/sh"
+-_RCCMD_su="/usr/bin/su"
++_RCCMD_su="/bin/su"
+ _RCCMD_systrace="/bin/systrace"
+ _RCCMD_whoami="/usr/bin/whoami"
+</pre>
+
+h2(#init). Starting with init
+
+Using postfix as the example still, install the example init script
+into your @rc.d@ path, mine is set to @/usr/pkg/etc/rc.d@:
+
+<pre class="prettyprint">
+cp /usr/pkg/share/examples/rc/postfix /usr/pkg/etc/rc.d
+</pre>
+
+Edit @/usr/pkg/etc/rc.d/postfix@ and add the sysv-rc headers, something
+similar to:
+
+<pre class="prettyprint">
+### BEGIN INIT INFO
+# Provides:          postfix
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Postfix daemon.
+### END INIT INFO
+</pre>
+
+Lastly, link the script to @/etc/init.d@ and run @update-rc.d@:
+
+<pre class="prettyprint">
+ln -s /usr/pkg/etc/rc.d/postfix /etc/init.d/postfix
+update-rc.d postfix defaults
+</pre>
+
+Now, set up @/etc/rc.conf@ as normal, and postfix should boot.
+
+h3. Footnotes
+
+fn1. "Using pkgsrc on Centos 5.5":/pub/pkgsrc_centos
+
+fn2. "Using pkgsrc on Centos 5.5":/pub/pkgsrc_centos#init
+

@@ -1,0 +1,307 @@
+/*
+
+name: ohess
+version: 0.2
+designer: Anthony Johnson <aj@ohess.org>
+
+http://colorschemedesigner.com/#3p22drXrbubgV0UPNK1VYJR2VwFi3QXRa4KMTGoCkQ1pBDLVqA1H7rAXS-s.7VK
+*/
+
+
+body {
+    font-family: "Georgia", serif;
+    margin: 0px;
+}
+
+
+/* SIZING */
+.inner, .row {
+    width: 825px;
+    margin: 0em auto;
+    padding: 0em;
+    overflow: auto;
+}
+
+#content > .row .col,
+#content > .row .col-1,
+#content > .row .col-2,
+#content > .row .col-3 {
+    float: left;
+    width: 275px;
+}
+    
+#content > .row .col-2 {
+    width: 550px;
+}
+    
+#content > .row .col-3 {
+    width: 825px;
+}
+
+@media screen and (max-width: 825px) {
+    .inner, .row {
+        width: 600px;
+        margin: 0em auto;
+        padding: 0em;
+        overflow: auto;
+    }
+
+    #content > .row .col,
+    #content > .row .col-1,
+    #content > .row .col-2,
+    #content > .row .col-3 {
+        float: left;
+        width: 600px;
+    }
+}
+
+/* STYLING */
+a:link,
+a:visited { 
+    color: #166B87;
+}
+
+a:hover {
+    color: #3893B1;
+}
+
+a:active {
+    color: #255767;
+}
+
+/* Header for title */
+#header {
+    margin: 0px;
+    padding: 20px;
+    font-family: "Puritan", "FreeSans", sans-serif;
+    font-size: 3em;
+    line-height: 1.2em;
+    background: #0089aa;
+}
+
+#header > .inner > span {
+    display: none;
+}
+
+#header > .inner {
+    height: 100px;
+    background: url('ohess.png');
+    background-repeat: no-repeat;
+}
+
+/* Nav */
+#nav {
+    height: 1.2em;  
+    margin-top: -1.8em;
+    font-family: "Puritan", "FreeSans", sans-serif;
+    font-size: 1.2em;
+    text-align: right;
+    line-height: .95em;
+    font-weight: normal;
+    text-transform: lowercase;
+    color: #87796B;
+}
+
+#nav ul {
+    list-style: none;
+    padding: .3em 0em;
+}
+
+#nav li {
+    display: inline;
+    list-style: none;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 2px 1px 0px 1px;
+}
+
+#nav li a {
+    text-decoration: none;
+    color: #004B67;
+}
+
+#nav li a.focus {
+    color: #f0f0f0;
+}
+
+#nav li > span.breadcrumb {
+    font-family: "Puritan", "FreeSans", sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    color: #87796B;
+}
+
+
+/* Acutal content */
+#content {
+    margin-top: 1em;
+    padding: 20px;
+    background: #fff;
+    color: #201515;
+    font-family: "Merriweather", "Georgia", serif;
+    text-align: left;
+}
+
+#content h1, #content h2, #content h3, #content h4, #content h5 {
+    font-weight: normal;
+    margin: 5px 10px;
+}
+
+#content h1 {
+    font-size: 1.7em;
+    line-height: .9em;
+    letter-spacing: -0.02em;
+    font-style: normal;
+	font-family: "Puritan";
+}
+
+#content h1 > b, #content h1 > i, #content h1 > em {
+    font-family: "Puritan", "FreeSans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#content h2 {
+    font-size: 1.5em;
+    line-height: 1em;
+    letter-spacing: -0.02em;
+	font-family: "Puritan", "FreeSans", sans-serif;
+    font-style: italic;
+}
+
+#content h2 > b, #content h2 > i, #content h2 > em {
+    font-family: "Puritan";
+    font-style: italic;
+    font-weight: normal;
+}
+
+#content p {
+    margin: 1em .6em;
+    font-size: .9em;
+    font-weight: normal;
+    font-family: "Merriweather", "Georgia", serif;
+    color: #332;
+}
+
+#content h1 + p {
+    font-size: 1.1em;
+    line-height: 1.1em;
+    letter-spacing: -0.02em;
+    font-style: normal;
+    margin: 1em .6em;
+	font-family: "Puritan";
+}
+
+#content h1 + p > b, 
+#content h1 + p > i, 
+#content h1 + p > em {
+    font-family: "Puritan";
+    font-style: italic;
+}
+
+#content ul {
+    padding: 0em 0em 0em 1em;
+    margin: 1em .6em;
+}
+
+#content ul > li {
+    font-size: .9em;
+    font-weight: normal;
+    margin: .2em .1em;
+    color: #332;
+}
+
+#content p > strong,
+#content ul > li > strong {
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 88%;
+    font-weight: normal;
+}
+
+#content pre {
+    margin: 1em 1em;
+    background: #f0f0f0;
+    padding: 1em;
+}
+
+#content hr {
+    width: 80%;
+    border: 0px;
+    border-top: 1px solid #eee;
+}
+
+#content p + hr {
+	width: 40px;
+	height: 20px;
+	margin-top: 15px;
+	border: 0px;
+}
+
+
+/* Footer */
+#footer {
+    font-family: monospace;
+    font-style: italic;
+    line-height: 1em;
+    margin-top: 1em;
+    color: #87796B;
+}
+
+#footer a { 
+    font-style: normal;
+    text-decoration: none;
+    color: #166B87;
+}
+
+#footer ul {
+    display: block;
+    list-style: none;
+    margin: 1em 0em;
+    padding: 0em;
+}
+#footer ul > li {
+    display: inline;
+    padding: 0em 0em;
+}
+
+#footer ul > li:before { content: " - "; }
+#footer ul > li:first-child:before { content: ""; }
+
+
+
+/* Prettify */
+.str { color: #A89581; } /* string */
+.kwd { color: #64ADC5; } /* keyword */
+.com { color: #BFAE9C; } /* comment */
+.typ { color: #166B87; } /* type */
+.lit { color: #64ADC5; } /* literal */
+.pun { color: #87796B; } /* punctuation */
+.pln { color: #615951; } /* plain */
+.tag { color: #3893B1; } /* tag name */
+.atn { color: #166B87; } /* attr name */
+.atv { color: #A89581; } /* attr value */
+.dec { color: #3893B1; } /* declaration */
+.var { color: #3893B1; } /* variable */
+.fun { color: #3893B1; } /* function */
+
+pre.prettyprint {
+    padding: .5em 1em;
+    font-size: .9em;
+    overflow: auto;
+}
+
+ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+    list-style: none;
+}
+
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+    background: #eee;
+}
+

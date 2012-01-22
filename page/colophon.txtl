@@ -1,0 +1,16 @@
+h1. Colophon
+
+Credit where credit is due.
+
+This site is powered by "Avocado":http://bitbucket.org/agj/avocado, a Perl web 
+framework that I shat out. Pages are generated using Textile and Markdown. YAML and 
+embedded Textile are used for page meta data.
+
+"Lighttpd":http://lighttpd.net serves static content and processes dynamic content
+using FCGI and PSGI. "Varnish":http://varnish-cache.org is used for response 
+caching. "Postfix":http://www.postfix.org/ pushes out SMTP. Who cares whether
+I use emacs or vim? :wq
+
+This design uses "Pacifico":http://www.newtypography.co.uk/ for the main logo, 
+edited with Inkscape. "Puritan":http://www.readingtype.org.uk/ was used for headings.
+

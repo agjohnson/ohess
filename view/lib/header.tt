@@ -1,0 +1,32 @@
+[%- 
+  cdn = tempcdn or "c642293.r93.cf2.rackcdn.com";
+-%]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <title>[% IF meta.title %][% meta.title %] / [% END %]ohess</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css" />
+    <link rel="stylesheet" href="/static/css/fnt/puritan.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/fnt/merriweather.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/ohess/main.css" type="text/css" />
+    <!--<link rel="stylesheet" href="/static/css/ohess/m.css" type="text/css"
+      type="text/css" media="screen and (max-device-width: 480px)" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;
+      maximum-scale=1.0;" />-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <meta name="google-site-verification" content="hEbBhwrELad67HUX2OSPsORjfoUZDh8h3XWJUbYK68U" />
+  </head> 
+  <body> 
+ 
+    <div id="header">
+      <div id="logo" class="inner">
+        <span>ohess</span>
+      </div>
+    </div>
+ 
+      [% PROCESS 'lib/nav.tt' %]
+
+    <div id="content"> 
+

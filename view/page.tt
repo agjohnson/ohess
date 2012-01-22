@@ -1,0 +1,13 @@
+[% PROCESS 'lib/header.tt' %]
+
+[% IF id == "projects" or id == "index" %]
+<div class="row">
+  [% body %]
+</div>
+[% ELSE %]
+<div class="row">
+  [% body %]
+</div>
+[% END %]
+
+[% PROCESS 'lib/footer.tt' date="$date"%]

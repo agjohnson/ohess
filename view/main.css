@@ -1,0 +1,335 @@
+/*
+
+name: ohess
+version: 0.2
+designer: Anthony Johnson <aj@ohess.org>
+
+http://colorschemedesigner.com/#3p22drXrbubgV0UPNK1VYJR2VwFi3QXRa4KMTGoCkQ1pBDLVqA1H7rAXS-s.7VK
+[%  pri = {
+        b  => '#166B87',
+        ls => '#255767',
+        ds => '#08465B',
+        ll => '#3893B1',
+        hl => '#64ADC5'
+    }
+  
+    sec = {
+        b  => '#A89581',
+        ls => '#87796B',
+        ds  => '#615951',
+        ll => '#BFAE9C',
+        hl => '#D5C8BA'
+    }
+%]*/
+
+@import url('/static/css/fnt/puritan.css') all;
+
+body
+{
+  font-family: times, "Times New Roman", serif;
+  margin: 0px;
+}
+
+a:link,
+a:visited { 
+    color: [% pri.b %];
+}
+
+a:hover {
+    color: [% pri.ll %];
+}
+
+a:active {
+    color: [% pri.ls %];
+}
+
+/* Footer */
+#footer {
+  font-size: .8em;
+  font-family: monospace;
+  font-style: italic;
+  line-height: 1em;
+  margin-top: 1em;
+  color: [% sec.ls %];
+}
+
+#footer a { 
+  font-style: normal;
+  text-decoration: none;
+  color: [% pri.b %];
+}
+
+#footer > ul {
+    display: block;
+    list-style: none;
+    margin: 1em 0em;
+    padding: 0em;
+}
+#footer > ul > li {
+    display: inline;
+    padding: 0em 0em;
+}
+
+#footer > ul > li:before { content: " - "; }
+#footer > ul > li:first-child:before { content: ""; }
+
+/* Wrapper container */
+#container
+{
+  margin: 0px auto 50px auto;
+  padding: 30px 20px 20px 20px;
+  width: 790px;
+}
+
+/* Header for title */
+#header
+{
+    font-family: "Puritan", "FreeSan", sans-serif;
+    font-size: 3em;
+    line-height: 1.2em;
+    margin: 0px;
+    padding: 20px;
+}
+
+#header > .oh {
+    color: [% sec.b %];
+    text-shadow: [% sec.ds %] 1px 1px 1px;
+}
+#header > .ess {
+    color: [% pri.ll %];
+    text-shadow: [% pri.ls %] 1px 1px 2px;
+}
+
+/* Nav */
+#nav
+{
+  font-family: "Puritan";
+  font-size: 1.2em;
+  text-align: right;
+  line-height: .95em;
+  font-weight: normal;
+  text-transform: lowercase;
+  margin: -30px 0px 0px 0px;
+  color: [% sec.ls %];
+  height: 20px;  
+}
+
+#nav ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#nav li {
+  display: inline;
+  list-style: none;
+  margin: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 2px 1px 0px 1px;
+}
+
+#nav li a {
+  text-decoration: none;
+  color: [% pri.b %];
+}
+
+#nav li a.focus {
+  color: [% pri.ll %];
+}
+
+#nav li > span.breadcrumb {
+  font-family: "Puritan Italic";
+  font-style: italic;
+  font-weight: normal;
+  color: [% sec.ls %];
+}
+
+
+/* Acutal content */
+#content
+{
+  text-align: left;
+  background: #fff;
+  font-family: "DejaVu Serif", "Georgia", serif;
+  color: #201515;
+  margin-top: 1em;
+  padding: 20px;
+}
+
+#content h1, #content h2, #content h3, #content h4, #content h5
+{
+  font-weight: normal;
+  margin: 5px 10px;
+}
+
+#content h1
+{
+  font-size: 1.7em;
+  line-height: .9em;
+  letter-spacing: -0.02em;
+  font-style: normal;
+	font-family: "Puritan", "Museo Slab 500";
+}
+#content h1 > b, #content h1 > i, #content h1 > em
+{
+  font-family: "Puritan Bold";
+  font-style: normal;
+}
+
+#content h2
+{
+  font-size: 1.5em;
+  line-height: 1em;
+  letter-spacing: -0.02em;
+	font-family: "Puritan Italic", "Museo Slab 500";
+  font-style: italic;
+}
+#content h2 > b, #content h2 > i, #content h2 > em
+{
+  font-family: "Puritan Italic";
+}
+
+
+#content h1 + p, #content p:first-child
+{
+  font-size: 1.1em;
+  line-height: 1.1em;
+  letter-spacing: -0.02em;
+  font-style: normal;
+  margin: 5px 10px;
+	font-family: "Puritan", "Museo Slab 500";
+}
+
+#content h1 + p > b, 
+#content h1 + p > i, 
+#content h1 + p > em, 
+#content p:first-child > b,
+#content p:first-child > i,
+#content p:first-child > em
+{
+  font-family: "Puritan Italic";
+}
+
+#content p
+{
+  font-size: .9em;
+  font-weight: normal;
+  margin: 5px 10px;
+  color: #332;
+}
+#content > p > i, #content > p > em
+{
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 88%;
+}
+
+/* Custom */
+.col ul.activity {
+    list-style: none;
+    margin: .1em 0em 2em 0em;
+    padding: 0em;
+}
+
+.col ul.activity > li {
+    padding: .2em 1em;
+    margin: .2em 1em;
+    color: [% sec.ls %];
+    font-size: .7em;
+    border-left: .2em solid #D5C8BA;
+}
+
+.col ul.activity > li a {
+    color: [% sec.ds %];
+    text-decoration: none;
+}
+
+/* Columns - Three column layout */
+#content > .cols-3
+{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#content > .cols-3 > .col
+{
+  width: 250px;
+  float: left;
+}
+
+#content hr
+{
+  width: 80%;
+  border: 0px;
+  border-top: 1px solid #eee;
+}
+
+#content p + hr
+{
+	width: 40px;
+	height: 20px;
+	border: 0px;
+	background-image: url('hr-1.png');
+	margin-top: 15px;
+}
+
+#content > .cols-3 > .col img
+{
+  width: 240px;
+  margin: 5px;
+  border: 0px;
+}
+
+/* Columns - Two (wide, thin) layout */
+#content > .cols-2wt {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#content > .cols-2wt > .col:first-child {
+  width: 500px;
+  float: left;
+}
+
+#content > .cols-2wt > .col {
+  width: 250px;
+  float: left;
+}
+
+/* Prettify */
+.str { color: [% sec.b %]; } /* string */
+.kwd { color: [% pri.hl %]; } /* keyword */
+.com { color: [% sec.ll %]; } /* comment */
+.typ { color: [% pri.b %]; } /* type */
+.lit { color: [% pri.hl %]; } /* literal */
+.pun { color: [% sec.ls %]; } /* punctuation */
+.pln { color: [% sec.ds %]; } /* plain */
+.tag { color: [% pri.ll %]; } /* tag name */
+.atn { color: [% pri.b %]; } /* attr name */
+.atv { color: [% sec.b %]; } /* attr value */
+.dec { color: [% pri.ll %]; } /* declaration */
+.var { color: [% pri.ll %]; } /* variable */
+.fun { color: [% pri.ll %]; } /* function */
+
+pre.prettyprint {
+    padding: .5em 1em;
+    font-size: .7em;
+    overflow: auto;
+}
+
+ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+    list-style: none;
+}
+
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+    background: #eee;
+}
+

@@ -1,0 +1,95 @@
+h1. System Administration with Csistck
+
+Csistck started off as a simple script to automate system administration and
+ended up being a more generic framework for building system adminstration
+scripts. Csistck is supposed to be flexible by design and because of this,there
+are several ways to use the scripts and structure your own projects. 
+
+Below is an example layout, or recipe, for using the framwork. The example does
+break standard Perl conventions to be more readable, however these modules are
+not meant to be redistributable.
+
+
+h2. Bootstrapping
+
+The easiest way of bootstrapping an environment for development, and for
+deployment, is using cpanminus and App::local::lib::wrapper. For anyone familiar with modern
+Perl principles, this is straight-forward.
+
+<pre>
+% cpanm -l ~/dev/maintenance App::local::lib::wrapper
+</pre>
+
+Once App::local::lib::wrapper is configured, you can enter the environment in a number of
+ways. I simple execute a new shell with the wrapper:
+
+<pre>
+% ~/dev/maintenance/bin/localenv /bin/tcsh
+</pre>
+
+Once you are in the local environment, you can install Csistck. It is not
+registered as a namespace yet, but the following should get the last release.
+
+<pre>
+% cpanm Csistck
+</pre>
+
+h2. Layout
+
+Unlike Chef, bfg2, et al, directory structure is very loose, and is not
+required. You can use a standard Perl module directory structure, such as 
+
+The first step is to plan out what roles you will need to configure and what
+hosts will need to be configured. I have found the most natural laytou to be
+breaking services up into top-level roles:
+
+<pre>
+% find ./ -type d
+./httpd
+./postfix
+</pre>
+
+In this example, I will be configuring Apache httpd and Postfix. A basic
+configuration module would look like this:
+
+<pre class="pretty">
+package httpd::roles;
+
+use Csistck;
+
+role 'httpd' =>
+  pkg('apache2-mpm-mpm'),
+  script('httpd/test-apache-httpd');
+
+role 'httpd.dev' =>
+  role('httpd');
+
+1;
+</pre>
+
+This example uses Perl's alternate syntax for calling functions, using '=>'
+instead of ',' to separate some arguments. A similar syntax is used in
+Mojolicious and Dancer to allow for more readable projects.
+
+The script could easily be written in a more standard syntax though:
+
+<pre>
+package httpd::roles;
+
+use Csistck;
+
+role('httpd', 
+  pkg('apache2-mpm-worker'),
+  script('httpd/test-apache-httpd'));
+
+role('httpd-dev',
+  role('httpd'));
+
+1;
+</pre>
+
+
+
+<script src="/static/js/prettify.js"></script>
+<script> $(document).ready(function() { prettyPrint(); }); </script>
+

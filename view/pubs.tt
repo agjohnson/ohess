@@ -1,0 +1,21 @@
+[% PROCESS 'lib/header.tt' %]
+
+<div class="row">
+
+    <div class="col-3">
+        
+        <h1>Publications</h1>
+        
+        [% IF pubs %]
+            [% FOREACH article = pubs.keys.reverse %]
+        <h2><a href="/pub/[% article %]">[% pubs.$article.title %]</a></h2>
+                [% IF pubs.$article.summary;
+                    pubs.$article.summary.html();
+                END; %]
+            [% END %]
+        [% END %]
+    </div>
+
+</div>
+
+[% PROCESS 'lib/footer.tt' date="$date"%]

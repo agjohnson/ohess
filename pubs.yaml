@@ -1,0 +1,31 @@
+---
+managing-passwords-forget-them:
+  title: Managing Passwords, Forget Them
+  tags: [ admin, bcrypt ]
+  summary: !perl/Ohess::Textile >
+    Using bcrypt to generate passwords from passphrases, instead of storing and sharing passwords
+
+csistck-background:
+  title: Csistck Project Background
+  tags: [ csistck, admin ]
+  summary: !perl/Ohess::Textile >
+    Background on using "csistck":/projects/csistck for configuration management
+
+pkgsrc-build-server:
+  title: Pkgsrc Build Server
+  tags: [ pkgsrc, linux, admin ]
+  summary: !perl/Ohess::Textile >
+    How to set up a simple pkgsrc build server for single architecture clusters
+
+using-pkgsrc-on-centos-55:
+  title: Using Pkgsrc on Centos 5.5
+  tags: [ pkgsrc, linux, admin ]
+  summary: !perl/Ohess::Textile >
+    Directions for setting up pkgsrc on Centos 5.5
+
+using-pkgsrc-on-debian-squeeze:
+  title: Using Pkgsrc on Debian Squeeze
+  tags: [ pkgsrc, linux, admin ]
+  summary: !perl/Ohess::Textile >
+    Directions for setting up pkgsrc on Debian Squeeze
+

@@ -1,0 +1,64 @@
+[% PROCESS 'lib/header.tt' %]
+
+[% IF id.match('^doc/') %]
+<div class="row">
+  <div class="col-3">
+    [% body %]
+  </div>
+</div>
+
+<script src="/static/js/prettify.js"></script>
+<script> $(document).ready(function() { prettyPrint(); }); </script>
+[% ELSE %]
+<div class="row">
+  <div class="col-3">
+    [% body %]
+   
+    <hr />
+
+    [% IF meta.tags %]
+    <h3>Tagged:</h3>
+    <ul>
+      [% FOREACH tag = meta.tags %]
+      <li>[% tag %]</li>
+      [% END %]
+    </ul>
+    [% END %]
+    
+  </div>
+</div>
+
+<div class="row">
+    
+  <hr/>
+
+  [%# Disable Commenting
+
+  <div id="disqus_thread">
+    <a href="#" onclick="javascript:showassholeofinternet();">Comments</a>
+  </div>
+  <script type="text/javascript">
+    var disqus_shortname = 'ohess';
+
+    var disqus_identifier = '[--% id %--]';
+    var disqus_url = 'http://ohess.org/pub/[--% id %--]';
+
+    function showassholeofinternet() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+  </script>
+
+  %]
+
+  <p>
+    Sorry, I don't like site commenting. If you have any corrections, comments, 
+    or want to open a discussion, please email me at <a href="mailto:aj@ohess.org">aj@ohess.org</a>.
+  </p>
+
+</div>
+
+[% END %]
+
+[% PROCESS 'lib/footer.tt' date="$date"%]

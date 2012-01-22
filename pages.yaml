@@ -1,0 +1,72 @@
+---
+index:
+  featured:
+    - title: Csistck 0.06
+      link: http://search.cpan.org/dist/Csistck/
+      link: http://bitbucket.org/agj/csistck
+      excerpt: !perl/Ohess::Textile >
+        I cleaned up some bugs and finally bumped to 0.06 release. This is the
+        stable release that is usable, but there are still some trivial bugs.
+        Planned for 0.7: more package management, better logging on terminal, 
+        including possibly detecting terminals with color output -- maybe.
+
+
+        You can also check out the code "on bitbucket":http://bitbucket.org/agj/csistck/src/19820b82ca37
+
+    - title: Pkgsrc Build Server
+      link: /pub/pkgsrc-build-server
+      excerpt: !perl/Ohess::Textile >
+        Running several pkgsrc boxes on top of Rackspace Cloud, all which use
+        the same kernel and release, it makes a lot of sense to build binary 
+        packages once, on a single machine. The easiest way to do this is to 
+        have a dedicated build server -- something which is very simple in a
+        cloud hosting environment.
+    - title: Managing Passwords, Forget Them
+      excerpt: !perl/Ohess::Textile >
+        As a system administrator, I have tried many different methods of 
+        remembering passwords for several dozen servers worth of root account 
+        passwords, MySQL passwords, and user account passwords. Instead of 
+        remembering these passwords, or even storing a password list encrypted 
+        somewhere, I eventually started generating password hashes using various 
+        algoritms. This iteration of the script uses bcrypt and a passphrase to 
+        generate hashed and salted passwords.
+      link: /pub/managing-passwords-forget-them
+    - title: NetBSD Pkgsrc on Linux
+      excerpt: !perl/Ohess::Textile >
+        There are several reasons for running pkgsrc on top of Linux, one reason
+        being a common package management, and common packages for server daemons
+        across a mixed environment of Linux distributions and FreeBSD or NetBSD 
+        boxes. I use Debian Squeeze with pkgsrc, and had limited success with
+        Centos 5.5 and pkgsrc, however I would like to test Centos 6, now that it
+        is finally released, as well as outline my build process for my server cluster.
+        Hopefully I will time soon. For now:
+
+
+        * "Using Pkgsrc on Debian":/pub/using-pkgsrc-on-debian-squeeze
+
+        * "Using Pkgsrc on Centos":/pub/using-pkgsrc-on-centos-55
+    - title: Csistck Examples
+      link: http://bitbucket.org/agj/csistck-examples/overview
+      excerpt: !perl/Ohess::Textile >
+        Csistck is a configuration automation tool, similiar in theory to Chef.
+        I have started to add a few examples of how I use Csistck to manage my
+        own servers.
+        
+        
+        I included a basic example of how I deploy csistck maintenance scripts across
+        a large number of hosts, using Fabric. The example uses git, as I use that 
+        internally.
+    - title: Brewing Calculators
+      excerpt: !perl/Ohess::Textile >
+        I use a custom script to help me brew beer -- specifically, to calculate
+        the volume of water I will need to account for various losses in the
+        mashing and lautering processes. This is just the start, I will be making
+        the script a little more verbose.
+
+        
+        A "live demo is available here":http://lab.dcoding.com/brewcalc
+
+
+        The "source is available on bitbucket":http://bitbucket.org/agj/brewcalc
+
+pub:

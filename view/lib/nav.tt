@@ -1,0 +1,23 @@
+ 
+      <div id="nav">
+        <ul id="nav-links" class="inner">
+          <li><a id="link-home" [% IF section == "page" and id == "index"  %]class="focus"[% END %]  href="/">home</a></li>
+          <li>
+            <a id="link-projects" [% IF section == "projects" or ( section == "page" and id == "projects" ) %]class="focus"[% END %] href="/projects">projects</a>
+          </li>
+          <li>
+            <a id="link-pub" [% IF section == "pub" or ( section == "page" and id == "pub" ) %]class="focus"[% END %] href="/pub">pub</a>
+          </li>
+          <li><a id="link-code" href="http://bitbucket.org/agj">code</a></li>
+          <li><a id="link-about" [% IF section == "page" and id == "about" %]class="focus"[% END %] href="/about">about</a></li>
+        </ul>
+
+        <ul class="inner">
+          <li>
+            [% IF id -%]
+            <span class="breadcrumb">[% id %]</span>
+            [%- END %]
+          </li>
+        </ul>
+      </div>
+ 

@@ -1,0 +1,96 @@
+
+h1. Debian Clusters for Small Teams
+
+Debian is a great candidate for a multi-server environment, especially for a
+company or a team with limited resources. It's packaging and release policies
+reduce server management overhead by introducing less instability and by 
+easily maintaining sane package dependencies, if maintained correctly of course.
+
+Small teams don't generally have the same ability as a larger team, or a larger 
+company, with resources to spend on server management and testing overhead. Most
+small admin teams need to stay flexible.
+
+One step to making a small cluster of Debian hosts more efficient is to reduce 
+redundancies in the network. This is accomplished by:
+
+* Setting up a caching proxy server for apt mirrors
+* Maintaining packages with a local repository
+* More.
+
+
+h2. Caching Proxy for Debian Mirrors
+
+Running a local proxy is the most straight-forward change to a Debian cluster.
+The obvious benefit is reduced download times, even with generous downstream 
+available. The secondary benefit is central management of Debian mirrors -- only
+one change is required to use another mirror.
+
+The choice of proxying software is somewhat anecdotal. Before upgrading to the
+_squeeze_ release I used @approx@, which has since moved away from init startup
+in favor of inetd startup. I ran into stability issues running @apt-proxy@ and
+@apt-cacher@ and @apt-cacher-ng@ has a horribly convoluted setup.
+
+Since upgrading, I decided to use an acutal http daemon, in lieu of these 
+specific programs. My normal choice, @lighttpd@, doesn't act as a caching proxy
+out of the box, however @nignx@ does.
+
+Here's a sample site definition:
+
+<pre class="prettyprint">
+<code>
+# nginx - /etc/nginx/sites-enabled/default
+
+proxy_cache_path /var/cache/apt/http levels=1:2 keys_zone=apt:10m max_size=1000m;
+
+server {
+
+  listen 80;
+  listen [::]:80 default ipv6only=on;
+  
+  server_name mirror.example.com;
+
+  access_log /var/log/nginx/localhost.access.log;
+ 
+  location /debian {
+    proxy_pass http://ftp.us.debian.org;
+    proxy_cache apt;
+    proxy_cache_valid 12h;
+  }
+
+  location /internal {
+    proxy_pass http://dev.example.com/debian;
+    proxy_cache apt;
+    proxy_cache_valid 5m;
+  }
+
+}
+</code>
+</pre>
+
+The other part of this set up is of course the host apt source configuration, 
+which would look something like this:
+
+<pre class="prettyprint">
+<code>
+# Apt Sources: /etc/apt/sources.list
+
+deb http://mirror.example.com/debian squeeze main
+deb http://mirror.example.com/debian squeeze-updates main
+deb http://mirror.example.com/internal /
+</code>
+</pre>
+
+The proxy definition for '/internal' in the @nginx@ and @apt@ configuration is
+a local debian repository for internal packages. This is useful for maintining 
+meta-packages and full packages for software not in the standard Debian repositories.
+
+
+h2. Local Debian Repository
+
+More.
+
+
+<script src="/static/js/prettify.js"></script>
+<script> $(document).ready(function() { prettyPrint(); }); </script>
+
+

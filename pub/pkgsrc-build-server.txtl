@@ -1,0 +1,138 @@
+
+h1. Pkgsrc Build Server
+
+I run NetBSD's pkgsrc, even across Debian based servers, so that I can unify
+packages that are installed across a mixed environment of servers. For my
+personal hosting, I run several servers that run the same kernel, which allows
+me to easily build packages once.
+
+To set up a build server, I first create a new server instance. The build
+process will only take several hours, so I set up a large server alongside my
+other servers on Rackspace Cloud.
+
+My build server is a Debian box, so I first perform the standard setup for
+pkgsrc on Debian based hosts[1]. You don't need to set up rc.subr, the build
+server only needs to be bootstrapped with pkgsrc.
+
+Running a build server allows for a server that you can pollute with packages
+you wouldn't normally run across multiple servers. The pkgsrc packaging process
+requires the package to be installed first, before final packaging. This can be
+avoided several ways, including a chrooted build environment, but I find this
+method to be the easiest, for building packages for a single architecture and 
+kernel at least.
+
+h2. Speeding Up Builds
+
+Pkgsrc shines if you force multiple jobs, I set @/usr/pkg/etc/mk.conf@ with: 
+@MAKE_JOBS=4@ to force 4 build jobs when possible.
+
+h2. Build Process
+
+The build process is still the same as if you are building packages on
+individual servers, however the extra step is to build packages, using the
+@package@ target for pkgsrc makefiles.
+
+This is fairly simple, however I do have a script that builds a package for the
+current package, as well as it's dependencies:
+
+<pre class="prettyprint lang-sh">
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 [package path]"
+fi
+
+# Recursively get dependencies
+get_depends() {
+    path=$1
+    
+    if [ -d /usr/pkgsrc/$path ]
+    then
+        cd /usr/pkgsrc/$path
+        /usr/pkg/bin/bmake show-depends-pkgpaths |
+        while read package
+        do
+            echo $package
+            get_depends $package
+        done
+    else
+        echo "Path $path does not exist"
+    fi
+}
+
+# Build package
+build_package() {
+    path=$1
+
+    cd /usr/pkgsrc/$path
+    /usr/pkg/bin/bmake package
+}
+
+# Process dependencies and build packages
+package=$1
+
+get_depends $package | 
+sort -u |
+while read pkg_path
+do
+    build_package $pkg_path
+done
+
+build_package $package
+</pre>
+
+h2. Installing on Satellite Nodes
+
+This can be done by using @scp@ to sync the packages path, or you can set up an
+ftp or ssh server to serve the packages path. I prefer the more standard setup of using
+ftp to install packages. You can use any ftp server, I prefer @vsftpd@, but I
+install from Debian's mirrors so that I am not in turn polluting the build tree.
+
+Once installed, I simply allow anonymous access and change the ftp user home
+path:
+
+<pre>
+usermod -d /usr/pkgsrc/packages ftp
+</pre>
+
+To install packages, use @pkg_add@ from the satellite server. First you must set
+the @PKG_PATH@ environmental variable to the server URL (I use tcsh). From there, you can run
+@pkg_add@, which will pull the file from the ftp server.
+
+<pre>
+setenv PKG_PATH ftp://buildserver/All
+pkg_add -v varnish
+</pre>
+
+h2. Upgrading
+
+I boot up my build server whenever I need packages built, and then run through
+the standard pkgsrc upgrade procedures. First, find what packages need to be rebuilt on
+the satellite nodes[2]:
+
+<pre>
+pkg_chk -g 
+pkg_chk -uan
+</pre>
+
+This will give you a list of packages to upgrade on the build server. Update
+pkgsrc on the build server and rebuild the packages that are behind the pkgsrc
+version on the build server, being sure to rebuild the package and dependencies.
+
+The satellite servers can now pull in the new binary packages from the build
+server for upgrading:
+
+<pre>
+pkg_add -vu varnish
+</pre>
+
+h3. Footnotes
+
+fn1. "Using Pkgsrc on Debian Squeeze":/pub/using-pkgsrc-on-debian-squeeze
+
+fn2. "Keeping packages up-to-date with pkg_comp and pkg_chk":http://wiki.netbsd.org/tutorials/pkgsrc/pkg_comp_pkg_chk/
+
+
+<script src="/static/js/prettify.js"></script>
+<script> $(document).ready(function() { prettyPrint(); }); </script>
+

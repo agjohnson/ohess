@@ -1,0 +1,7 @@
+[% PROCESS 'lib/header.tt' %]
+
+<div class="row">
+  [% body %]
+</div>
+
+[% PROCESS 'lib/footer.tt' date="$date"%]
