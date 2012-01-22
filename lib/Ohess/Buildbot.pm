@@ -7,7 +7,7 @@ use warnings;
 use LWP::Simple qw//;
 use JSON;
 
-sub build_stats {
+sub stats {
     my $project = shift;
     my $api = "http://build.ohess.org/json";
     my $url = sprintf("%s/builders/%s/builds/-1", $api, $project);
