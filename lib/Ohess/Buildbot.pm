@@ -26,7 +26,7 @@ sub parse_meta {
     my $stats;
 
     foreach my $step (@{$build->{steps}}) {
-        if ($step->{name} == "test") {
+        if ($step->{name} eq "test") {
             $stats = sprintf(
               '<span>%s</span><span>%s</span>',
               $step->{'statistics'}->{'tests-failed'},
