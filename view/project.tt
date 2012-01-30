@@ -1,7 +1,5 @@
 [% PROCESS 'lib/header.tt' %]
 
-[% build_stats($id) %]
-
 <div class="row">
   [% body %]
 </div>

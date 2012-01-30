@@ -27,6 +27,14 @@ h2. Source
 * "Bitbucket":https://bitbucket.org/agj/csistck
 * "Github":https://github.com/agjohnson/csistck
 
+<div id="project-stats"></div>
+<script href="/static/js/projects.js"></script>
+<script>
+window.onload = function() {
+    update_project_status();
+}
+</script>
+
 h2. Notes
 
 * "Project Background":/pub/csistck_background
