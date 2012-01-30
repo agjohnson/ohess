@@ -28,7 +28,7 @@ h2. Source
 * "Github":https://github.com/agjohnson/csistck
 
 <div id="project-stats"></div>
-<script href="/static/js/projects.js"></script>
+<script src="/static/js/projects.js"></script>
 <script>
 window.onload = function() {
     update_project_status();
