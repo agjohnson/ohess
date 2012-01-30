@@ -3,7 +3,7 @@
         <ul id="nav-links" class="inner">
           <li><a id="link-home" [% IF section == "page" and id == "index"  %]class="focus"[% END %]  href="/">home</a></li>
           <li>
-            <a id="link-projects" [% IF section == "projects" or ( section == "page" and id == "projects" ) %]class="focus"[% END %] href="/projects">projects</a>
+            <a id="link-projects" [% IF section == "project" or ( section == "page" and id == "projects" ) %]class="focus"[% END %] href="/projects">projects</a>
           </li>
           <li>
             <a id="link-pub" [% IF section == "pub" or ( section == "page" and id == "pub" ) %]class="focus"[% END %] href="/pub">pub</a>

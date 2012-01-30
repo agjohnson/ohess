@@ -17,7 +17,7 @@ use Ohess::Buildbot;
 # Index
 get '^/projects/([A-Za-z0-9\_\-\.]+)[/]*$' => sub {
     my $id = shift;
-    my $section = "projects";
+    my $section = "project";
 
     # Textile for text
     my ($filename, $title, $date, $meta, $args, $body);
@@ -54,9 +54,9 @@ get '^/projects/([A-Za-z0-9\_\-\.]+)[/]*$' => sub {
 };
 
 get '^/projects/([A-Za-z0-9\_\-\.]+)/stats.json$' => sub {
-    my $project = @_;
+    my $id = shift;
 
-    my $obj = Ohess::Buildbot::stats($project);
+    my $obj = Ohess::Buildbot::stats($id);
     my $res = Avocado::Response->new(
         status => 200,
         content_type => 'text/javascript',
