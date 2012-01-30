@@ -31,7 +31,7 @@ h2. Source
 <script src="/static/js/projects.js"></script>
 <script>
 window.onload = function() {
-    get_project_status('csistck');
+    get_project_stats('csistck');
 }
 </script>
 
