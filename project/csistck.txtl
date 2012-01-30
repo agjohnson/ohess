@@ -27,7 +27,9 @@ h2. Source
 * "Bitbucket":https://bitbucket.org/agj/csistck
 * "Github":https://github.com/agjohnson/csistck
 
-<div id="project-stats"></div>
+<ul>
+  <li><div id="project-stats"></div></li>
+</ul>
 <script src="/static/js/projects.js"></script>
 <script>
 window.onload = function() {
