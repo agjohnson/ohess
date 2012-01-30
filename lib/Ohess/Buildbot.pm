@@ -11,27 +11,29 @@ sub stats {
     my $project = shift;
     my $api = "http://build.ohess.org/json";
     my $url = sprintf("%s/builders/%s/builds/-1", $api, $project);
-    my $stats;
 
     my $content = LWP::Simple::get($url);
 
     return undef
       unless(defined($content));
     
-    return parse_meta(decode_json($content));
+    my $obj = decode_json($content);
+    return undef
+      unless(defined($obj));
+
+    return parse_stats($obj);
 }
 
-sub parse_meta {
-    my $build = shift;
+sub parse_stats {
+    my $obj = shift;
     my $stats;
 
-    foreach my $step (@{$build->{steps}}) {
+    foreach my $step (@{$obj->{steps}}) {
         if ($step->{name} eq "test") {
-            $stats = sprintf(
-              '<span>%s</span><span>%s</span>',
-              $step->{'statistics'}->{'tests-failed'},
-              $step->{'statistics'}->{'tests-passed'}
-            );
+            $stats = {
+              failed => $step->{'statistics'}->{'tests-failed'},
+              passed => $step->{'statistics'}->{'tests-passed'}
+            };
         }
     }
     
