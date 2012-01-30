@@ -10,7 +10,7 @@ function get_project_stats(project) {
         req = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    req.open('POST', sprintf("/projects/%s/stats.json", project), true);
+    req.open('POST', '/projects/'+ project +'/stats.json', true);
     req.onreadystatechange = function() {
         if (req.readyState == 4) {
             update_project_stats(
@@ -22,10 +22,8 @@ function get_project_stats(project) {
 }
 
 function update_project_stats(stats){
-    document.getElementById("project-stats").innerHTML = sprintf(
-        "Build tests: %d failed, %d passed",
-        stats.failed,
-        stats.passed
+    document.getElementById('project-stats').innerHTML = sprintf(
+        'Build tests: '+ stats.failed +' failed, '+ stats.passed +' passed'
     );
 }
 
