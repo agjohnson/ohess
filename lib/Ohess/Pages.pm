@@ -45,7 +45,7 @@ get '^/pub[/]?$' => sub {
 
 # Textile processing for pages and notes
 get '^/pub/((?:[A-Za-z0-9\_\-]+/|)[A-Za-z0-9\_\-\.]+)[/]*$' => 
-  sub { return process_textile(@_); }; 
+  sub { return process_textile("pub", @_); }; 
 get '^/(projects|about|colophon|honeypot)[/]*$' => 
   sub { return process_textile("page", @_); };
 
