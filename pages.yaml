@@ -1,9 +1,17 @@
 ---
 index:
   featured:
+    - title: On the State of High Availability
+      link: /pub/on-the-state-of-high-availability
+      column: left
+      excerpt: !perl/Ohess::Textile >
+        Recently, while trying to set up a small failover cluster of servers, I found
+        myself scouring for a lot of answers. This struck me as strange, however
+        it seems high-availability lacks momentum in the open source community.
     - title: Csistck 0.06
       link: http://search.cpan.org/dist/Csistck/
       link: http://bitbucket.org/agj/csistck
+      column: left
       excerpt: !perl/Ohess::Textile >
         I cleaned up some bugs and finally bumped to 0.06 release. This is the
         stable release that is usable, but there are still some trivial bugs.
@@ -15,6 +23,7 @@ index:
 
     - title: Pkgsrc Build Server
       link: /pub/pkgsrc-build-server
+      column: left
       excerpt: !perl/Ohess::Textile >
         Running several pkgsrc boxes on top of Rackspace Cloud, all which use
         the same kernel and release, it makes a lot of sense to build binary 
@@ -56,17 +65,5 @@ index:
         I included a basic example of how I deploy csistck maintenance scripts across
         a large number of hosts, using Fabric. The example uses git, as I use that 
         internally.
-    - title: Brewing Calculators
-      excerpt: !perl/Ohess::Textile >
-        I use a custom script to help me brew beer -- specifically, to calculate
-        the volume of water I will need to account for various losses in the
-        mashing and lautering processes. This is just the start, I will be making
-        the script a little more verbose.
-
-        
-        A "live demo is available here":http://lab.dcoding.com/brewcalc
-
-
-        The "source is available on bitbucket":http://bitbucket.org/agj/brewcalc
 
 pub:

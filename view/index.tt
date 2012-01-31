@@ -4,28 +4,23 @@
 
     [% IF meta;
        
-        col1 = [];
-        col2 = [];
-        col3 = [];
-        currentcol = '1';
+        col1.style = "col-2";
+        col1.articles = [];
+        col2.style = "col-1";
+        col2.articles = [];
 
         FOREACH article = meta.featured;
-            IF currentcol == 1;
-                col1.push(article);
-                currentcol = 2;
-            ELSIF currentcol == 2;
-                col2.push(article);
-                currentcol = 3;
+            IF article.column == "left";
+                col1.articles.push(article);
             ELSE;
-                col3.push(article);
-                currentcol = 1;
+                col2.articles.push(article);
             END;
         END;
     END %]
 
-    [% FOREACH col = [ col1, col2, col3 ] %]
-    <div class="col">
-        [% FOREACH article = col %]
+    [% FOREACH col = [ col1, col2 ] %]
+    <div class="col [% col.style %]">
+        [% FOREACH article = col.articles %]
         <h2>[% article.title %]</h2>
         <p>[% article.excerpt.html() %]</p>
             [% IF article.link %]

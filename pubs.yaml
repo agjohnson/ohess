@@ -1,4 +1,10 @@
 ---
+on-the-state-of-high-availability:
+  title: On the State of High Availability
+  tags: [ admin, HA, freebsd, linux ]
+  summary: !perl/Ohess::Textile >
+    An example of the troubles setting up open source high availability clusters
+
 managing-passwords-forget-them:
   title: Managing Passwords, Forget Them
   tags: [ admin, bcrypt ]
