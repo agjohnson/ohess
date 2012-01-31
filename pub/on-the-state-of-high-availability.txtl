@@ -1,0 +1,60 @@
+h1. On the State of High Availability
+
+Demand for viable open source solutions for high availability seems to be on the
+decline -- or at least the supply seems to be withering away. I can only
+speculate why this may be the case. Maybe the requirement for clustering pushes
+projects to evaluate enterprise solutions, or maybe the demand truely isn't
+there.
+
+I recently noticed this all while setting up a fairly simple configuration -- I
+was setting up two boxes to act as SPoF, active-passive gateways. These boxes
+were going to run FreeBSD and pf for NAT and routing, and I would use CARP or
+Linux-HA for host failover. 
+
+So, my first attempt, FreeBSD 8.2 on both boxes. CARP requires a kernel
+re-compile. Not above my comfort zone, but in the interest of future
+maintainability, I opted for FreeBSD 9.0.
+
+FreeBSD 9.0 and CARP didn't work because of the missing @carpdev@ feature that
+hasn't been ported from OpenBSD yet. I required the @carpdev@ feature because
+the gateway is only allocated 1 public IP, and CARP without @carpdev@ requires 3
+addresses per failover address -- one IP per physical interface, and the
+failover address as an alias.
+
+NetBSD does have @carpdev@, but requires a kernel rebuild. I went ahead anyways,
+and while the kernel rebuild was clean, @ifconfig@ segfaulted -- even after a
+recompile of @ifconfig@ and @netstat@. 
+
+Back to FreeBSD 9.0, this time without CARP. Alternatives? Freevrrpd: dead.
+Linux-HA: not fully ported over. So, I tried Linux-HA, specifically heartbeat.
+All went okay when each interface was brought up with an IP address, but again,
+this was a problem. My final test was using heartbeat on a down interface, with a
+heartbeat network on a third interface between the nodes. The failover was okay,
+but heartbeat refuses to create an interface with anything but a /32 subnet.
+This shouldn't be the case, so something feels *off*.
+
+So, now I am left with only a few options.
+
+Ditch everything and switch to Linux with @iptables@. Can't use LVS, it's dead.
+I'm stuck with Linux-HA and heartbeat, not to mention @iptables@ -- but maybe
+that's a slight idelogical stance.
+
+Hack up FreeBSD and heartbeat to get the interface up correctly. Some simple
+troubleshooting may resolve this issue.
+
+FreeBSD and keepalived. This is not fully ported from Linux though.
+
+OpenBSD, so I can use both @pf@ and @carpdev@. This of course won't be as
+maintainable.
+
+I'm also considering a custom solution may very well be faster at this point.
+
+As I ran into more and more dead-ends, I began switching gears a lot quicker,
+spending less time troubleshooting each iteration. I believe there are
+work-arounds for these issues, but my point is not that these projects are
+flawed, but that the overall pool of solutions is so thin and seemingly
+outdated.
+
+If I can find myself with some time and a good enough solution, I may try to
+find my own solution to this problem eventually.
+
