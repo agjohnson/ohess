@@ -8,7 +8,7 @@
     <title>[% IF meta.title %][% meta.title %] / [% END %]ohess</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css" />
-    <link rel="stylesheet" href="/static/css/fnt/puritan.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/fnt/quicksand.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/fnt/merriweather.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/ohess/main.css" type="text/css" />
     <!--<link rel="stylesheet" href="/static/css/ohess/m.css" type="text/css"
@@ -22,7 +22,9 @@
  
     <div id="header">
       <div id="logo" class="inner">
-        <span>ohess</span>
+        <span class='ohess'>
+          <span class='oh'>oh</span><span class='ess'>ess</span>
+        </span>
       </div>
     </div>
  

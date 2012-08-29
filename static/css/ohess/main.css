@@ -9,7 +9,7 @@ http://colorschemedesigner.com/#3p22drXrbubgV0UPNK1VYJR2VwFi3QXRa4KMTGoCkQ1pBDLV
 
 
 body {
-    font-family: "Georgia", serif;
+    font-family: 'Georgia', serif;
     margin: 0px;
 }
 
@@ -72,33 +72,40 @@ a:active {
 /* Header for title */
 #header {
     margin: 0px;
-    padding: 20px;
-    font-family: "Puritan", "FreeSans", sans-serif;
+    font-family: 'Quicksand', 'FreeSans', sans-serif;
     font-size: 3em;
     line-height: 1.2em;
-    background: #0089aa;
 }
 
-#header > .inner > span {
-    display: none;
+#header > .inner > span.ohess > span.oh {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px #f4f4f4;
+    color: #6AC2E4;
+}
+
+#header > .inner > span.ohess > span.ess {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px #f4f4f4;
+    color: #221;
+}
+
+#header > .inner > span.ohess {
+    padding: .4em;
+    line-height: 3.2em;
 }
 
 #header > .inner {
-    height: 100px;
-    background: url('ohess.png');
-    background-repeat: no-repeat;
 }
 
 /* Nav */
 #nav {
     height: 1.2em;  
-    margin-top: -1.8em;
-    font-family: "Puritan", "FreeSans", sans-serif;
+    font-family: monospace, sans-serif;
     font-size: 1.2em;
     text-align: right;
+    text-transform: uppercase;
     line-height: .95em;
     font-weight: normal;
-    text-transform: lowercase;
     color: #87796B;
 }
 
@@ -122,13 +129,14 @@ a:active {
 }
 
 #nav li a.focus {
-    color: #f0f0f0;
+    color: #6AC2E4;
 }
 
 #nav li > span.breadcrumb {
-    font-family: "Puritan", "FreeSans", sans-serif;
+    font-family: 'Quicksand', 'FreeSans', sans-serif;
     font-style: italic;
     font-weight: normal;
+    text-transform: lowercase;
     color: #87796B;
 }
 
@@ -139,7 +147,7 @@ a:active {
     padding: 20px;
     background: #fff;
     color: #201515;
-    font-family: "Merriweather", "Georgia", serif;
+    font-family: 'Merriweather', 'Georgia', serif;
     text-align: left;
 }
 
@@ -149,54 +157,62 @@ a:active {
 }
 
 #content h1 {
-    font-size: 1.7em;
-    line-height: .9em;
+    padding: .2em .8em;
     letter-spacing: -0.02em;
     font-style: normal;
-	font-family: "Puritan";
+    font-weight: 400;
+	font-family: 'Quicksand';
+    font-size: 1.6em;
+    text-shadow: 1px 1px 5px #000;
+    line-height: 1.8em;
+    background: #221;
+    color: #f4f4f4;
 }
 
 #content h1 > b, #content h1 > i, #content h1 > em {
-    font-family: "Puritan", "FreeSans", sans-serif;
-    font-weight: 700;
+    font-family: 'Quicksand', 'FreeSans', sans-serif;
+    font-weight: bold;
     font-style: normal;
 }
 
 #content h2 {
-    font-size: 1.5em;
-    line-height: 1em;
+    padding: .2em .8em;
+	font-family: 'Quicksand', 'FreeSans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4em;
+    text-shadow: 1px 1px 5px #000;
+    line-height: 1.6em;
     letter-spacing: -0.02em;
-	font-family: "Puritan", "FreeSans", sans-serif;
-    font-style: italic;
+    background: #221;
+    color: #f4f4f4;
 }
 
 #content h2 > b, #content h2 > i, #content h2 > em {
-    font-family: "Puritan";
-    font-style: italic;
-    font-weight: normal;
+    font-family: 'Quicksand';
+    font-weight: bold;
 }
 
 #content p {
     margin: 1em .6em;
     font-size: .9em;
     font-weight: normal;
-    font-family: "Merriweather", "Georgia", serif;
+    font-family: 'Merriweather', 'Georgia', serif;
     color: #332;
 }
 
 #content h1 + p {
-    font-size: 1.1em;
-    line-height: 1.1em;
-    letter-spacing: -0.02em;
-    font-style: normal;
     margin: 1em .6em;
-	font-family: "Puritan";
+	font-family: 'Merriweather';
+     letter-spacing: -0.02em;
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: 1.2em;
 }
 
 #content h1 + p > b, 
 #content h1 + p > i, 
 #content h1 + p > em {
-    font-family: "Puritan";
+    font-family: 'Merriweather';
     font-style: italic;
 }
 
@@ -266,8 +282,8 @@ a:active {
     padding: 0em 0em;
 }
 
-#footer ul > li:before { content: " - "; }
-#footer ul > li:first-child:before { content: ""; }
+#footer ul > li:before { content: ' - '; }
+#footer ul > li:first-child:before { content: ''; }
 
 
 

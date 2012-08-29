@@ -1,6 +1,13 @@
 ---
 index:
   featured:
+    - title: Csistck 0.1003 Released
+      link: https://metacpan.org/module/Csistck
+      column: left
+      excerpt: !perl/Ohess::Textile >
+        Version 0.1003 is the latest stable release. The .10 release includes
+        better logging and reporting, on_repair triggers, and several command
+        line option changes.
     - title: On the State of High Availability
       link: /pub/on-the-state-of-high-availability
       column: left
@@ -8,19 +15,6 @@ index:
         Recently, while trying to set up a small failover cluster of servers, I found
         myself scouring for a lot of answers. This struck me as strange, however
         it seems high-availability lacks momentum in the open source community.
-    - title: Csistck 0.06
-      link: http://search.cpan.org/dist/Csistck/
-      link: http://bitbucket.org/agj/csistck
-      column: left
-      excerpt: !perl/Ohess::Textile >
-        I cleaned up some bugs and finally bumped to 0.06 release. This is the
-        stable release that is usable, but there are still some trivial bugs.
-        Planned for 0.7: more package management, better logging on terminal, 
-        including possibly detecting terminals with color output -- maybe.
-
-
-        You can also check out the code "on bitbucket":http://bitbucket.org/agj/csistck/src/19820b82ca37
-
     - title: Pkgsrc Build Server
       link: /pub/pkgsrc-build-server
       column: left

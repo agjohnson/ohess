@@ -1,0 +1,14 @@
+/*
+typeface: Quicksand 
+url: http://fonts.googleapis.com/css?family=Quicksand
+*/
+
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Quicksand Regular'),
+        local('Quicksand-Regular'),
+        url('Quicksand.woff') format('woff');
+}
+
