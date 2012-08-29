@@ -10,8 +10,11 @@ use Avocado;
 
 use Ohess::Pages;
 use Ohess::Projects;
+use Ohess::Static;
 use Ohess::Main;
 
-Avocado->run;
+sub psgi {
+    Avocado->run;
+}
 
 1;

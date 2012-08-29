@@ -18,6 +18,10 @@ requires 'Plack' => 0;
 requires 'Plack::Handler::FCGI' => 0;
 requires 'YAML' => 0;
 requires 'Scalar::Util' => 0;
+requires 'MIME::Types' => 0;
+
+requires 'App::local::lib::helper' => 0;
+requires 'Twiggy' => 0;
 
 test_requires 'Test::More' => 0;
 
