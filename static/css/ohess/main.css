@@ -156,12 +156,13 @@ a:active {
     margin: 5px 10px;
 }
 
-#content h1 {
+#content div.col-2 h1,
+#content div.col-3 h1 {
     padding: .2em .8em;
     letter-spacing: -0.02em;
     font-style: normal;
     font-weight: 400;
-	font-family: 'Quicksand';
+	font-family: 'Quicksand', sans-serif;
     font-size: 1.6em;
     text-shadow: 1px 1px 5px #000;
     line-height: 1.8em;
@@ -169,15 +170,21 @@ a:active {
     color: #f4f4f4;
 }
 
+#content div.col-1 h1 {
+    font-family: monospace;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
 #content h1 > b, #content h1 > i, #content h1 > em {
-    font-family: 'Quicksand', 'FreeSans', sans-serif;
     font-weight: bold;
     font-style: normal;
 }
 
-#content h2 {
+#content div.col-2 h2,
+#content div.col-3 h2 {
     padding: .2em .8em;
-	font-family: 'Quicksand', 'FreeSans', sans-serif;
+	font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     font-size: 1.4em;
     text-shadow: 1px 1px 5px #000;
@@ -187,9 +194,15 @@ a:active {
     color: #f4f4f4;
 }
 
+#content div.col-1 h2 {
+    font-family: monospace;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
 #content h2 > b, #content h2 > i, #content h2 > em {
-    font-family: 'Quicksand';
     font-weight: bold;
+    font-style: normal;
 }
 
 #content p {

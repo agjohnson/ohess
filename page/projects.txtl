@@ -1,17 +1,17 @@
-<div class="col">
+<div class="col-1">
 
 h2. csistck
 
 "csistck":/projects/csistck is a server configuration management library for Perl.
 
 </div>
-<div class="col">
+<div class="col-1">
 
 h2. avocado
 
 "avocado":/projects/avocado is a framework that was built as an exercise in organizing a framework.
 
 </div>
-<div class="col">
+<div class="col-1">
 
 </div>

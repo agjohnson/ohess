@@ -24,17 +24,8 @@ index:
         packages once, on a single machine. The easiest way to do this is to 
         have a dedicated build server -- something which is very simple in a
         cloud hosting environment.
-    - title: Managing Passwords, Forget Them
-      excerpt: !perl/Ohess::Textile >
-        As a system administrator, I have tried many different methods of 
-        remembering passwords for several dozen servers worth of root account 
-        passwords, MySQL passwords, and user account passwords. Instead of 
-        remembering these passwords, or even storing a password list encrypted 
-        somewhere, I eventually started generating password hashes using various 
-        algoritms. This iteration of the script uses bcrypt and a passphrase to 
-        generate hashed and salted passwords.
-      link: /pub/managing-passwords-forget-them
     - title: NetBSD Pkgsrc on Linux
+      column: left
       excerpt: !perl/Ohess::Textile >
         There are several reasons for running pkgsrc on top of Linux, one reason
         being a common package management, and common packages for server daemons
