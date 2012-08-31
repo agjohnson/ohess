@@ -29,11 +29,11 @@ body {
     float: left;
     width: 275px;
 }
-    
+
 #content > .row .col-2 {
     width: 550px;
 }
-    
+
 #content > .row .col-3 {
     width: 825px;
 }
@@ -57,7 +57,7 @@ body {
 
 /* STYLING */
 a:link,
-a:visited { 
+a:visited {
     color: #166B87;
 }
 
@@ -162,7 +162,7 @@ a:active {
     letter-spacing: -0.02em;
     font-style: normal;
     font-weight: 400;
-	font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 1.6em;
     text-shadow: 1px 1px 5px #000;
     line-height: 1.8em;
@@ -184,7 +184,7 @@ a:active {
 #content div.col-2 h2,
 #content div.col-3 h2 {
     padding: .2em .8em;
-	font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     font-size: 1.4em;
     text-shadow: 1px 1px 5px #000;
@@ -194,6 +194,8 @@ a:active {
     color: #f4f4f4;
 }
 
+#content div.col-3 h3,
+#content div.col-2 h3,
 #content div.col-1 h2 {
     font-family: monospace;
     font-size: 1.3em;
@@ -203,6 +205,14 @@ a:active {
 #content h2 > b, #content h2 > i, #content h2 > em {
     font-weight: bold;
     font-style: normal;
+}
+
+#content h1 a,
+#content h2 a,
+#content h3 a,
+#content h4 a,
+#content h5 a {
+    text-decoration: none;
 }
 
 #content p {
@@ -215,7 +225,7 @@ a:active {
 
 #content h1 + p {
     margin: 1em .6em;
-	font-family: 'Merriweather';
+    font-family: 'Merriweather';
      letter-spacing: -0.02em;
     font-style: normal;
     font-size: 1.1em;
@@ -262,10 +272,10 @@ a:active {
 }
 
 #content p + hr {
-	width: 40px;
-	height: 20px;
-	margin-top: 15px;
-	border: 0px;
+    width: 40px;
+    height: 20px;
+    margin-top: 15px;
+    border: 0px;
 }
 
 

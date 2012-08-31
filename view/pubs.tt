@@ -2,17 +2,19 @@
 
 <div class="row">
 
-    <div class="col-3">
-        
-        <h1>Publications</h1>
-        
+    <div class="col-2">
+
+        <h2>Publications</h2>
+        <p>&nbsp;</p>
         [% IF pubs %]
             [% FOREACH article = pubs.keys.reverse %]
-        <h3><a href="/pub/[% article %]">[% pubs.$article.title %]</a></h3>
+        <div>
+          <h3><a href="/pub/[% article %]">[% pubs.$article.title %]</a></h3>
                 [% IF pubs.$article.summary;
                     pubs.$article.summary.html();
                 END; %]
             [% END %]
+        </div>
         [% END %]
     </div>
 
