@@ -15,8 +15,8 @@ sub html {
 
     # Return based on self reference type
     given (Scalar::Util::reftype($self)) {
-        when ("SCALAR") { $ret = $self->html_scalar(); }
-        when ("HASH") { $ret = $self->html_hash(); }
+        when ("SCALAR") { $ret = $self->html_scalar() }
+        when ("HASH") { $ret = $self->html_hash() }
     }
 
     return $ret;
@@ -28,10 +28,8 @@ sub html_scalar {
     # New Textile and get rid of extra breaks, process scalar ref
     my $txtl = Text::Textile->new();
     $txtl->{_line_close} = "";
-    
-    my $ret = $txtl->process(${$self});
 
-    return $ret
+    return $txtl->process(${$self});
 }
 
 1;

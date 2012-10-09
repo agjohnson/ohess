@@ -16,7 +16,7 @@ sub stats {
 
     return undef
       unless(defined($content));
-    
+
     my $obj = decode_json($content);
     return undef
       unless(defined($obj));
@@ -36,7 +36,7 @@ sub parse_stats {
             };
         }
     }
-    
+
     return $stats;
 }
 

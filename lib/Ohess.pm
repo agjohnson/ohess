@@ -1,20 +1,27 @@
 package Ohess;
 
-use 5.010000;
+use 5.010;
 use strict;
 use warnings;
 
 our $VERSION = '0.01';
 
-use Avocado;
-
+use Ohess::Backend;
 use Ohess::Pages;
 use Ohess::Projects;
-use Ohess::Static;
-use Ohess::Main;
 
-sub psgi {
-    Avocado->run;
+use Plack::Builder;
+use Plack::Middleware::Static;
+
+sub app {
+    builder {
+        enable(
+            "Plack::Middleware::Static",
+            path => sub { s#^/static/## },
+            root => 'static/'
+        );
+        mount '/' => \&Ohess::Backend::app;
+    }
 }
 
 1;

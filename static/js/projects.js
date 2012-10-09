@@ -2,7 +2,7 @@
 
 function get_project_stats(project) {
     var req;
-    
+
     if (window.XMLHttpRequest) {
         req = new XMLHttpRequest();
     }
@@ -10,10 +10,11 @@ function get_project_stats(project) {
         req = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    req.open('POST', '/projects/'+ project +'/stats.json', true);
+    req.open('GET', '/projects/'+ project +'/stats.json', true);
     req.onreadystatechange = function() {
         if (req.readyState == 4) {
             var a = req.responseText;
+            console.log(req.responseText);
             update_project_stats(
                 eval('('+ req.responseText +')')
             );
