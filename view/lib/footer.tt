@@ -2,24 +2,21 @@
     </div>
 
     <div id="footer">
-      
-      <div class="inner">
+      [% IF date or share %]
+      <div class="row">
+        <div class="w12">
+          [% IF date %]Last modified: [% date %][% END %]
+          [% IF share %]<a href="#">Share this</a>[% END %]
+        </div>
+      [% END %]
 
-        [% IF date or share %]
-        <ul>
-          [% IF date %]<li>Last modified: [% date %]</li>[% END %]
-          [% IF share %]<li><a href="#">Share this</a></li>[% END %]
-        </ul>
-        [% END %]
-
-        <ul>
-          <li>&copy; 2011 Anthony Johnson &lt;aj@ohess.org&gt;</li>
-          <li><a href="/colophon">Colophon</a></li>
-          <li><a href="/honeypot">Honeypot</a></li>
-        </ul>
-
+      <div class="row">
+        <div class="w12">
+          &copy; 2011 Anthony Johnson &lt;aj@ohess.org&gt;
+          <a href="/colophon">Colophon</a>
+          <a href="/honeypot">Honeypot</a>
+        </div>
       </div>
- 
     </div>
 
 <script type="text/javascript">
@@ -36,5 +33,5 @@
 
 </script>
 
-  </body> 
-</html> 
+  </body>
+</html>

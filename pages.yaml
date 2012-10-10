@@ -3,7 +3,7 @@ index:
   featured:
     - title: Csistck 0.1003 Released
       link: https://metacpan.org/module/Csistck
-      column: left
+      column: right
       excerpt: !perl/Ohess::Textile >
         Version 0.1003 is the latest stable release. The .10 release includes
         better logging and reporting, on_repair triggers, and several command

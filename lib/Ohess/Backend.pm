@@ -67,7 +67,7 @@ sub template ($;$) {
     }) or die "Error setting up template processor";
 
     $t->process($template, $args, \$output)
-      or die "Problem with template $@";
+      or die "Problem with template: " . $t->error();
 
     return Plack::Response->new(
         200,

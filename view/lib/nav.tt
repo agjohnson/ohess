@@ -1,20 +1,20 @@
- 
+
       <div id="nav">
-        <ul id="nav-links" class="inner">
-          <li>
+        <div class="row">
+          <div class="w6 nav-links">
+            <div>
+              <a id="link-home" [% IF section == "page" and id == "index"  %]class="focus"[% END %]  href="/">home</a>
+              <a id="link-projects" [% IF section == "project" or ( section == "page" and id == "projects" ) %]class="focus"[% END %] href="/projects">projects</a>
+              <a id="link-pub" [% IF section == "pub" or ( section == "page" and id == "pub" ) %]class="focus"[% END %] href="/pub">pub</a>
+              <a id="link-code" href="http://github.com/agjohnson">code</a>
+              <a id="link-about" [% IF section == "page" and id == "about" %]class="focus"[% END %] href="/about">about</a>
+            </div>
+          </div>
+          <div class="w6 nav-breadcrumb">
             [% IF id -%]
             <span class="breadcrumb">([% id %])</span>
             [%- END %]
-          </li>
-          <li><a id="link-home" [% IF section == "page" and id == "index"  %]class="focus"[% END %]  href="/">home</a></li>
-          <li>
-            <a id="link-projects" [% IF section == "project" or ( section == "page" and id == "projects" ) %]class="focus"[% END %] href="/projects">projects</a>
-          </li>
-          <li>
-            <a id="link-pub" [% IF section == "pub" or ( section == "page" and id == "pub" ) %]class="focus"[% END %] href="/pub">pub</a>
-          </li>
-          <li><a id="link-code" href="http://github.com/agjohnson">code</a></li>
-          <li><a id="link-about" [% IF section == "page" and id == "about" %]class="focus"[% END %] href="/about">about</a></li>
-        </ul>
+          </div>
+        </div>
       </div>
  
