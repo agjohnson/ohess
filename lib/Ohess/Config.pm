@@ -15,8 +15,10 @@ my $page_config = sprintf("%s/%s", $FindBin::Bin, "pages.yaml");
 
 sub pubs {
     return undef unless(-r $pub_config);
-
+    
+    local $YAML::SortKeys = 0;
     my $pubs = YAML::LoadFile($pub_config);
+    
     return $pubs;
 }
 
@@ -33,7 +35,9 @@ sub pub {
 sub pages {
     return undef unless(-r $page_config);
 
+    local $YAML::SortKeys = 0;
     my $pages = YAML::LoadFile($page_config);
+    
     return $pages;
 }
 

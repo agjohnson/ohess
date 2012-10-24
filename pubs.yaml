@@ -1,37 +1,59 @@
 ---
+state-change-events-statis:
+  title: State Change Events with Statis
+  tags: [ perl, admin, monitoring ]
+  date: 20121024
+  summary: !perl/Ohess::Textile >
+    Searching for a stream dashboard for resource events, I created Statis as a
+    supplemental dashboard.
+
+deploying-perl-fabric-carton:
+  title: Deploying Perl with Fabric and Carton
+  tags: [ perl, admin ]
+  date: 20121012 
+  summary: !perl/Ohess::Textile >
+    An example of deploying Perl applications with Fabric and Carton, with
+    slides from a panel talk at pdx-pm.
+
 on-the-state-of-high-availability:
   title: On the State of High Availability
   tags: [ admin, HA, freebsd, linux ]
+  date: 20120601
   summary: !perl/Ohess::Textile >
     An example of the troubles setting up open source high availability clusters
 
 managing-passwords-forget-them:
   title: Managing Passwords, Forget Them
   tags: [ admin, bcrypt ]
+  date: 20110901 
   summary: !perl/Ohess::Textile >
     Using bcrypt to generate passwords from passphrases, instead of storing and sharing passwords
 
 csistck-background:
   title: Csistck Project Background
   tags: [ csistck, admin ]
+  date: 20120101
   summary: !perl/Ohess::Textile >
     Background on using "csistck":/projects/csistck for configuration management
 
 pkgsrc-build-server:
   title: Pkgsrc Build Server
   tags: [ pkgsrc, linux, admin ]
+  date: 20120501
   summary: !perl/Ohess::Textile >
     How to set up a simple pkgsrc build server for single architecture clusters
 
 using-pkgsrc-on-centos-55:
   title: Using Pkgsrc on Centos 5.5
   tags: [ pkgsrc, linux, admin ]
+  date: 20120415
   summary: !perl/Ohess::Textile >
     Directions for setting up pkgsrc on Centos 5.5
 
 using-pkgsrc-on-debian-squeeze:
   title: Using Pkgsrc on Debian Squeeze
   tags: [ pkgsrc, linux, admin ]
+  date: 20120415
   summary: !perl/Ohess::Textile >
     Directions for setting up pkgsrc on Debian Squeeze
 

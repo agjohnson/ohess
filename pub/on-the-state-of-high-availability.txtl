@@ -9,7 +9,7 @@ there.
 I recently noticed this all while setting up a fairly simple configuration -- I
 was setting up two boxes to act as SPoF, active-passive gateways. These boxes
 were going to run FreeBSD and pf for NAT and routing, and I would use CARP or
-Linux-HA for host failover. 
+Linux-HA for host failover.
 
 So, my first attempt, FreeBSD 8.2 on both boxes. CARP requires a kernel
 re-compile. Not above my comfort zone, but in the interest of future
@@ -23,7 +23,7 @@ failover address as an alias.
 
 NetBSD does have @carpdev@, but requires a kernel rebuild. I went ahead anyways,
 and while the kernel rebuild was clean, @ifconfig@ segfaulted -- even after a
-recompile of @ifconfig@ and @netstat@. 
+recompile of @ifconfig@ and @netstat@.
 
 Back to FreeBSD 9.0, this time without CARP. Alternatives? Freevrrpd: dead.
 Linux-HA: not fully ported over. So, I tried Linux-HA, specifically heartbeat.
@@ -42,10 +42,11 @@ that's a slight idelogical stance.
 Hack up FreeBSD and heartbeat to get the interface up correctly. Some simple
 troubleshooting may resolve this issue.
 
-FreeBSD and keepalived. This is not fully ported from Linux though.
+Use FreeBSD and keepalived. This is not fully ported from Linux though.
 
-OpenBSD, so I can use both @pf@ and @carpdev@. This of course won't be as
-maintainable.
+Switch to OpenBSD, so I can use both @pf@ and @carpdev@. However, I feel
+OpenBSD, as well as NetBSD, would not be as maintainable for my employer -- a
+Linux only shop.
 
 I'm also considering a custom solution may very well be faster at this point.
 

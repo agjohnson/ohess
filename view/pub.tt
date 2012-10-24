@@ -59,6 +59,8 @@
 
 </div>
 
+<script src="/static/js/prettify.js"></script>
+<script> $(document).ready(function() { prettyPrint(); }); </script>
 [% END %]
 
 [% PROCESS 'lib/footer.tt' date="$date"%]

@@ -5,18 +5,24 @@
       [% IF date or share %]
       <div class="row">
         <div class="w12">
-          [% IF date %]Last modified: [% date %][% END %]
-          [% IF share %]<a href="#">Share this</a>[% END %]
+          <p>
+            [% IF date %]Last modified: [% date %][% END %]
+            [% IF share %]<a href="#">Share this</a>[% END %]
+          </p>
         </div>
+      </div>
       [% END %]
 
       <div class="row">
         <div class="w12">
-          &copy; 2011 Anthony Johnson &lt;aj@ohess.org&gt;
-          <a href="/colophon">Colophon</a>
-          <a href="/honeypot">Honeypot</a>
+          <p>
+            &copy; 2011 Anthony Johnson &lt;aj@ohess.org&gt;
+            <a href="/colophon">Colophon</a>
+            <a href="/honeypot">Honeypot</a>
+          </p>
         </div>
       </div>
+
     </div>
 
 <script type="text/javascript">

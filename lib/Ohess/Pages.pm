@@ -44,11 +44,16 @@ get '^/pub[/]?$' => sub {
         my $respond = shift;
         my $pubs = Ohess::Config::pubs();
 
+        my @pubkeys = sort {
+            $pubs->{$b}->{date} <=> $pubs->{$a}->{date}
+        } (keys $pubs);
+
         my $res = template('pubs.tt', {
             section => 'page',
             id => 'pub',
             title => 'publications',
-            pubs => $pubs
+            pubs => $pubs,
+            pubkeys => \@pubkeys
         });
         $res->headers->header('Cache-Control' => 'max-age=7200');
         return $respond->(render $res);

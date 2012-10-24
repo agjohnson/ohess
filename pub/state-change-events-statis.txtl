@@ -1,0 +1,58 @@
+h1. State Change Events with Statis
+
+<div class='row'>
+  <div class='col-1'>
+    <p>
+      A while ago, I began thinking of a way to make service and event reporting
+      quicker to follow, especially for a dashboard view. The output from Nagios
+      was a good example and target for what I was considering. I don't always
+      want to see the entire health status of the servers I am monitoring, even
+      just regarding service failures.
+    </p>
+  </div>
+  <div class='col-2'>
+    <p><img src='/static/img/statis.png'/></p>
+  </div>
+</div>
+
+It seemed that instead of watching the states and graphs of services and hosts,
+the meta-data of the states, the state *change events* were more useful for
+monitoring. Obviously, a broader overview of states and graphs is still more
+important for preventive measures, however.
+
+I feel this would still prove useful beyond just Nagios reporting as well, as a
+more general event trigger for multiple subscribers watching state changes.
+Using the event triggers as an application sink for failures or reporting could
+add another layer of monitoring to help catch problems earlier.
+
+h2. Architecture
+
+The application model is broken up into several pieces. First of all, Redis was
+used for the central pub/sub channel. The may be replaced later, maybe
+optionally, by 0MQ, but the number of publishers and/or subscribers would
+definitely dictate this decision.
+
+Event emitters decide what is considered a failing state and get and change the
+object state directly. When part of the object state is changed, an event is
+published to Redis. These state change events are ultimately consumed by event
+sinks, which then decide how to deal with the events emitted.
+
+h2. Emitters
+
+I haven't written any event emitters besides test emitters. My first attempt
+will be a wrapper script around Nagios check commands -- similar to the NSCA
+wrapper script. Evented emitters could also be used inside web applications, to
+monitor event changes or thresholds.
+
+h2. Consumers
+
+The main consumer is the web dashboard front end, but can easily be extended to
+CLI log output, an email notifications, IRC bots, etc.
+
+h2. Using Statis
+
+Statis is usable for testing purposes, but isn't stable. You can get the
+dashboard on github:
+
+"agjohnson/statis.git":http://github.com/agjohnson/statis
+

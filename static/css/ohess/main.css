@@ -19,6 +19,10 @@ body {
     overflow: auto;
 }
 
+.row .row {
+    margin: 0px -5px;
+}
+
 .row .col-1,
 .row .col-2,
 .row .col-3,
@@ -38,6 +42,7 @@ body {
     float: left;
     margin-left: 5px;
     margin-right: 5px;
+    position: relative;
 }
 
 .row .w1 { width: 55px; }
@@ -52,6 +57,18 @@ body {
 .row .w10 { width: 650px; }
 .row .w11 { width: 705px; }
 .row .w12, .row .col-3 { width: 770px; }
+
+.row .p1 { margin-left: 70px; }
+.row .p2 { margin-left: 135px; }
+.row .p3 { margin-left: 200px; }
+.row .p4 { margin-left: 265px; }
+.row .p5 { margin-left: 330px; }
+.row .p6 { margin-left: 395px; }
+.row .p7 { margin-left: 460px; }
+.row .p8 { margin-left: 525px; }
+.row .p9 { margin-left: 590px; }
+.row .p10 { margin-left: 655px; }
+.row .p11 { margin-left: 720px; }
 
 @media screen and (max-width: 780px) {
     .inner, .row {
@@ -77,6 +94,12 @@ body {
         display: block;
         float: none;
         width: auto;
+    }
+
+    .row .p1, .row .p2, .row .p3, .row .p4,
+    .row .p5, .row .p6, .row .p7, .row .p8,
+    .row .p9, .row .p10, .row .p11 {
+        margin-left: 5px;
     }
 }
 
@@ -115,15 +138,16 @@ a:active {
 
 #header .ohess {
     line-height: 3.2em;
-    margin: 0px 10px;
+    /*margin: 0px 10px;*/
 }
 
 /* Nav */
 #nav {
     text-transform: uppercase;
     line-height: .95em;
-    font-family: monospace, sans-serif;
+    font-family: 'Droid Sans Mono', monospace;
     font-weight: normal;
+    letter-spacing: -0.02em;
     font-size: 16px;
     line-height: 20px;
     color: #87796B;
@@ -140,10 +164,11 @@ a:active {
 }
 
 #nav span.breadcrumb {
-    font-family: 'Quicksand', 'FreeSans', sans-serif;
-    font-style: italic;
+    font-family: 'Droid Sans Mono', monospace;
+    font-size: 14px;
     font-weight: normal;
     text-transform: lowercase;
+    letter-spacing: -0.02em;
     color: #87796B;
 }
 
@@ -161,71 +186,85 @@ a:active {
     text-align: left;
 }
 
-#content h1, #content h2, #content h3, #content h4, #content h5 {
+.row h1, .row h2, .row h3, .row h4, .row h5 {
     font-weight: normal;
     margin: 5px 10px;
 }
 
-#content div.col-2 h1,
-#content div.col-3 h1 {
-    padding: .2em .8em;
-    letter-spacing: -0.02em;
+.row div.col-2 h1,
+.row div.col-3 h1 {
+    padding: .2em 0em;
     font-style: normal;
-    font-weight: 400;
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.6em;
-    text-shadow: 1px 1px 5px #000;
+    font-weight: 700;
+    font-size: 1.4em;
+    letter-spacing: -0.05em;
     line-height: 1.8em;
-    background: #221;
-    color: #f4f4f4;
-}
-
-#content div.col-1 h1 {
-    font-family: monospace;
-    font-size: 1.4em;
     text-transform: uppercase;
-}
-
-#content h1 > b, #content h1 > i, #content h1 > em {
-    font-weight: bold;
-    font-style: normal;
-}
-
-#content div.col-2 h2,
-#content div.col-3 h2 {
-    padding: .2em .8em;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 400;
-    font-size: 1.4em;
-    text-shadow: 1px 1px 5px #000;
-    line-height: 1.6em;
-    letter-spacing: -0.02em;
-    background: #221;
+    color: #332;
+    /*background: linear-gradient(top, #443, #332);
+    background: -moz-linear-gradient(top, #443, #332);
+    background: -webkit-linear-gradient(top, #443, #332);
     color: #f4f4f4;
+    text-shadow: 1px 1px 5px #000;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 1px #000;*/
 }
 
-#content div.col-3 h3,
-#content div.col-2 h3,
-#content div.col-1 h2 {
+.row div.col-1 h1 {
     font-family: monospace;
     font-size: 1.3em;
     text-transform: uppercase;
 }
 
-#content h2 > b, #content h2 > i, #content h2 > em {
+.row h1 > b, .row h1 > i, .row h1 > em {
     font-weight: bold;
     font-style: normal;
 }
 
-#content h1 a,
-#content h2 a,
-#content h3 a,
-#content h4 a,
-#content h5 a {
+.row div.col-2 h2,
+.row div.col-3 h2 {
+    padding: .2em 0em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #332;
+    /*background: linear-gradient(top, #443, #332);
+    background: -moz-linear-gradient(top, #443, #332);
+    background: -webkit-linear-gradient(top, #443, #332);
+    color: #f4f4f4;
+    text-shadow: 1px 1px 5px #000;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 1px #000;*/
+}
+
+.row div.col-3 h3,
+.row div.col-2 h3,
+.row div.col-1 h2 {
+    font-family: 'Droid Sans Mono', monospace;
+    font-weight: normal;
+    font-size: 1em;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.row h2 > b, .row h2 > i, .row h2 > em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.row h1 a,
+.row h2 a,
+.row h3 a,
+.row h4 a,
+.row h5 a {
     text-decoration: none;
 }
 
-#content p {
+.row p {
     margin: 1em .6em;
     font-size: .9em;
     font-weight: normal;
@@ -233,7 +272,7 @@ a:active {
     color: #332;
 }
 
-#content h1 + p {
+.row h1 + p {
     margin: 1em .6em;
     font-family: 'Merriweather';
      letter-spacing: -0.02em;
@@ -242,58 +281,60 @@ a:active {
     line-height: 1.2em;
 }
 
-#content h1 + p > b,
-#content h1 + p > i,
-#content h1 + p > em {
+.row h1 + p > b,
+.row h1 + p > i,
+.row h1 + p > em {
     font-family: 'Merriweather';
     font-style: italic;
 }
 
-#content ul {
+.row ul {
     padding: 0em 0em 0em 1em;
     margin: 1em .6em;
 }
 
-#content ul > li {
+.row ul > li {
     font-size: .9em;
     font-weight: normal;
     margin: .2em .1em;
     color: #332;
 }
 
-#content p > strong,
-#content ul > li > strong {
+.row p > strong,
+.row ul > li > strong {
     font-style: normal;
     text-transform: uppercase;
     font-size: 88%;
     font-weight: normal;
 }
 
-#content pre {
+.row pre {
     margin: 1em 1em;
     background: #f0f0f0;
     padding: 1em;
 }
 
-#content hr {
+.row hr {
     width: 80%;
     border: 0px;
     border-top: 1px solid #eee;
 }
 
-#content p + hr {
+.row p + hr {
     width: 40px;
     height: 20px;
     margin-top: 15px;
     border: 0px;
 }
 
+.row > div img {
+    width: 100%;
+    box-shadow: 0px 0px 4px -1px #bbb;
+}
 
 /* Footer */
 #footer {
     margin: 1em 0em;
-    font-family: monospace;
-    font-style: italic;
     line-height: 1.5em;
     margin-top: 1em;
     color: #87796B;
@@ -305,7 +346,11 @@ a:active {
     margin: 1em 0em;
 }
 
-#footer a {
+#footer .row p {
+    font-family: 'Droid Sans Mono', monospace;
+}
+
+#footer .row a {
     font-style: normal;
     text-decoration: none;
     color: #166B87;

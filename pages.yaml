@@ -1,6 +1,25 @@
 ---
 index:
   featured:
+    - title: State Change Events with Statis
+      link: /pub/state-change-events-statis
+      column: left
+      excerpt: !perl/Ohess::Textile >
+        <img src='/static/img/statis.png'/>
+
+        Searching for a stream dashboard for resource events, I created Statis as a
+        supplemental dashboard.
+    - title: Deploying Perl with Fabric and Carton
+      link: /pub/deploying-perl-fabric-carton
+      column: left
+      excerpt: !perl/Ohess::Textile >
+        From a panel talk at pdx-pm, an example of a Perl application deployment
+        using Fabric and Carton
+
+
+        <p>
+        <script async class="speakerdeck-embed" data-id="5061752bc491a200020226f0" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+        </p>
     - title: Csistck 0.1003 Released
       link: https://metacpan.org/module/Csistck
       column: right
