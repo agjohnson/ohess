@@ -21,7 +21,7 @@ index:
         <script async class="speakerdeck-embed" data-id="5061752bc491a200020226f0" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
         </p>
     - title: Salt RPM Reinstall
-      link: salt-rpm-reinstall
+      link: /pub/salt-rpm-reinstall
       column: right
       excerpt: !perl/Ohess::Textile >
         How to upgrade to a new version with an RPM in Salt

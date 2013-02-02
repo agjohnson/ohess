@@ -1,4 +1,11 @@
 ---
+salt-reinstall-rpm:
+  title: Reinstall RPM with Salt
+  tags: [ salt, centos, rpm, redhat, admin ]
+  date: 20130201
+  summary: !perl/Ohess::Textile >
+    Using Salt Stack to upgrade an already install RPM.
+
 state-change-events-statis:
   title: State Change Events with Statis
   tags: [ perl, admin, monitoring ]
