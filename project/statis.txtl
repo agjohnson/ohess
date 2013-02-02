@@ -1,0 +1,30 @@
+<div class="col-2">
+
+h1. Statis - Event Tracking Dashboard
+
+Statis is an event tracking dashboard and library used to track changes in
+object state, provided from external sources.
+
+It is useful for tracking object state change events from Nagios -- not showing
+which services are critical, but showing the list of state changes to critical
+services.
+
+</div>
+<div class="col-1">
+
+h2. Source
+
+* "Statis":https://github.com/agjohnson/statis
+* "AnyEvent::Statis":https://github.com/agjohnson/anyevent-statis
+
+<ul>
+  <li><div id="project-stats"></div></li>
+</ul>
+<script src="/static/js/projects.js"></script>
+<script>
+window.onload = function() {
+    get_project_stats('statis');
+}
+</script>
+
+</div>

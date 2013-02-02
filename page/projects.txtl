@@ -2,16 +2,33 @@
 
 h2. csistck
 
-"csistck":/projects/csistck is a server configuration management library for Perl.
+"csistck":/projects/csistck is a very basic server configuration management
+library written with Perl.
+
+h2. smptbin
+
+"smtpbin":/projects/smtpbin is a web application and API for integration and QA
+testing email applications.
 
 </div>
 <div class="col-1">
 
 h2. avocado
 
-"avocado":/projects/avocado is a framework that was built as an exercise in organizing a framework.
+"avocado":/projects/avocado is a framework that was built as an exercise in
+organizing a framework.
+
+h2. snooze
+
+"snooze":http://github.com/agjohnson/snooze-pl is a REST abstraction for Perl,
+inspired by Python's "slumber":http://slumber.in
 
 </div>
 <div class="col-1">
+
+h2. statis
+
+"statis":/projects/statis is a web dashboard and event pushing library for
+tracking state change events.
 
 </div>

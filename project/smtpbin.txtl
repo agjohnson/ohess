@@ -1,0 +1,32 @@
+<div class="col-2">
+
+h1. SMTPbin - Email Testing Application
+
+SMTPbin, which is available at "smtpbin.org":http://smtpbin.org for public use,
+is a web application and JSON API for integration testing email applications.
+
+Messages sent to the domain are stored in bins, which can be retrieved through
+the API or viewed in the web interface as a plain message or an html message.
+
+</div>
+<div class="col-1">
+
+h2. Source
+
+* "SMTPbin":https://github.com/agjohnson/smtpbin
+
+<ul>
+  <li><div id="project-stats"></div></li>
+</ul>
+<script src="/static/js/projects.js"></script>
+<script>
+window.onload = function() {
+    get_project_stats('smtpbin');
+}
+</script>
+
+h2. Links
+
+* "SMTPbin.org":http://smtpbin.org
+
+</div>
