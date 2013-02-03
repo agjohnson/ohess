@@ -38,8 +38,9 @@ get '^/index$' => sub {
     };
 };
 
-# Publication list
-get '^/pub[/]?$' => sub {
+# Publication list and publish RSS feed
+get '^/pub([/]?|.rss)$' => sub {
+    my ($req, $content_type) = @_;
     return sub {
         my $respond = shift;
         my $pubs = Ohess::Config::pubs();
@@ -48,7 +49,8 @@ get '^/pub[/]?$' => sub {
             $pubs->{$b}->{date} <=> $pubs->{$a}->{date}
         } (keys $pubs);
 
-        my $res = template('pubs.tt', {
+        my $source = ($content_type eq '.rss') ? 'rss.tt' : 'pubs.tt';
+        my $res = template($source, {
             section => 'page',
             id => 'pub',
             title => 'publications',
@@ -56,6 +58,8 @@ get '^/pub[/]?$' => sub {
             pubkeys => \@pubkeys
         });
         $res->headers->header('Cache-Control' => 'max-age=7200');
+        $res->content_type('application/rss+xml')
+          if ($content_type eq '.rss');
         return $respond->(render $res);
     }
 };

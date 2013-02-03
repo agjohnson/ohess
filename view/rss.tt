@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss version="2.0">
+
+<channel>
+  <title>Ohess Publications</title>
+  <link>http://ohess.org</link>
+[% IF pubs %]
+  [% FOREACH pub = pubkeys %]
+  <item>
+    <title>[% pubs.$pub.title %]</title>
+    <link>http://ohess.org/pub/[% pub %]</link>
+    [% IF pubs.$pub.summary -%]
+    <description>[% pubs.$pub.summary.html() %]</description>
+    [%- END %]
+  </item>
+  [% END %]
+[% END %]
+</channel>

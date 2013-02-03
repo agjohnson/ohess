@@ -1,5 +1,5 @@
 ---
-salt-reinstall-rpm:
+salt-rpm-reinstall:
   title: Reinstall RPM with Salt
   tags: [ salt, centos, rpm, redhat, admin ]
   date: 20130201
