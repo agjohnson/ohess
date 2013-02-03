@@ -47,7 +47,7 @@ get '^/pub([/]?|.rss)$' => sub {
 
         my @pubkeys = sort {
             $pubs->{$b}->{date} <=> $pubs->{$a}->{date}
-        } (keys $pubs);
+        } (keys %{$pubs});
 
         my $source = ($content_type eq '.rss') ? 'rss.tt' : 'pubs.tt';
         my $res = template($source, {
