@@ -188,32 +188,23 @@ a:active {
 
 .row h1, .row h2, .row h3, .row h4, .row h5 {
     font-weight: normal;
-    margin: 5px 10px;
+    margin: 0px 10px;
 }
 
 .row div.col-2 h1,
 .row div.col-3 h1 {
-    padding: .2em 0em;
+    margin-top: .5em;
     font-style: normal;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 1.4em;
-    letter-spacing: -0.05em;
-    line-height: 1.8em;
-    text-transform: uppercase;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 900;
+    font-size: 1.5em;
+    line-height: 1.6em;
     color: #332;
-    /*background: linear-gradient(top, #443, #332);
-    background: -moz-linear-gradient(top, #443, #332);
-    background: -webkit-linear-gradient(top, #443, #332);
-    color: #f4f4f4;
-    text-shadow: 1px 1px 5px #000;
-    border-radius: 1px;
-    box-shadow: 0px 0px 0px 1px #000;*/
 }
 
 .row div.col-1 h1 {
-    font-family: monospace;
-    font-size: 1.3em;
+    font-family: 'Droid Sans Mono', monospace;
+    font-size: 1.2em;
     text-transform: uppercase;
 }
 
@@ -224,21 +215,12 @@ a:active {
 
 .row div.col-2 h2,
 .row div.col-3 h2 {
-    padding: .2em 0em;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 1.3em;
-    line-height: 1.6em;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
+    font-family: 'Merriweather', serif;
+    font-weight: 500;
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.55em;
     color: #332;
-    /*background: linear-gradient(top, #443, #332);
-    background: -moz-linear-gradient(top, #443, #332);
-    background: -webkit-linear-gradient(top, #443, #332);
-    color: #f4f4f4;
-    text-shadow: 1px 1px 5px #000;
-    border-radius: 1px;
-    box-shadow: 0px 0px 0px 1px #000;*/
 }
 
 .row div.col-3 h3,
@@ -249,6 +231,21 @@ a:active {
     font-size: 1em;
     letter-spacing: -0.02em;
     text-transform: uppercase;
+}
+
+.row div.col-2 h3,
+.row div.col-3 h3 {
+    color: #87796B;
+}
+
+.row h1 + h2 {
+    margin-top: -0.2em;
+}
+
+.row h1 + p,
+.row h2 + p,
+.row h3 + p {
+    margin-top: 10px;
 }
 
 .row h2 > b, .row h2 > i, .row h2 > em {
@@ -266,24 +263,27 @@ a:active {
 
 .row p {
     margin: 1em .6em;
-    font-size: .9em;
+    font-size: .95em;
     font-weight: normal;
     font-family: 'Merriweather', 'Georgia', serif;
     color: #332;
 }
 
-.row h1 + p {
-    margin: 1em .6em;
+.row h1 + p, .row p.focus {
+    margin: 1.1em .6em;
     font-family: 'Merriweather';
      letter-spacing: -0.02em;
     font-style: normal;
-    font-size: 1.1em;
-    line-height: 1.2em;
+    font-size: 1.15em;
+    line-height: 1.25em;
 }
 
 .row h1 + p > b,
 .row h1 + p > i,
-.row h1 + p > em {
+.row h1 + p > em,
+.row p.focus > b,
+.row p.focus > i,
+.row p.focus > em {
     font-family: 'Merriweather';
     font-style: italic;
 }
@@ -348,6 +348,7 @@ a:active {
 
 #footer .row p {
     font-family: 'Droid Sans Mono', monospace;
+    font-size: .9em;
 }
 
 #footer .row a {
