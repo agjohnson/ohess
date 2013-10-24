@@ -1,4 +1,12 @@
 ---
+plack-anyevent-redis-and-sockjs:
+  title: Plack, AnyEvent, Redis and SockJS
+  tags: [ perl, anyevent, websockets ]
+  date: 20130410
+  summary: !perl/Ohess::Textile >
+    Background information on websockets and an example walkthrough building an
+    evented web application with websockets
+
 salt-rpm-reinstall:
   title: Reinstall RPM with Salt
   tags: [ salt, centos, rpm, redhat, admin ]

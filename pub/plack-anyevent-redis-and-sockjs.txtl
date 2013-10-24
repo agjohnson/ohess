@@ -1,0 +1,70 @@
+h1(#install). Plack, AnyEvent, Redis, and SockJS
+
+I thought I would share some of what I've been doing with SockJS and Redis in
+Perl lately. This is an example application and some background information on
+websockets that will be part of a talk on AnyEvent and Plack/Twiggy at
+"pdx.pm":http://pdx.pm.org this week.
+
+
+h2(#websockets). WebSockets
+
+A websocket is a bi-directional socket connecting a client and the server. It
+allows for communication similar to comet or ajax, without polling overhead.
+A couple websocket wrapper implementations have popped up in the Node.js
+community: "Socket.IO":socketio and "SockJS":sockjs.
+
+[socketio]http://socket.io
+[sockjs]http://github.com/sockjs/sockjs-client
+
+Both implementations use "alternative transports":sockjs-transport to create a
+cross-browser websocket, or websocket-like, connection. Cross-browser support
+makes use of a proper WebSocket protocol initially, and failing that, backs down
+to a supported transport[sockjs-support].
+
+[sockjs-support]https://github.com/sockjs/sockjs-client#supported-transports-by-browser-html-served-from-http-or-https
+[sockjs-transport]https://github.com/sockjs/sockjs-client#supported-transports-by-name
+
+
+h2(#io-vs-js). SockJS vs Socket.IO
+
+"SockJS":sockjs was a project started to address bloat in "Socket.IO":socketio. 
+In the relative past, SockJS has appeared to be a more consistent project, and
+has had more active development. In response to a competing project,
+"Socket.IO":socketio was trimmed down to reduce bloat and given a different
+name: "Engine.IO":engineio.
+
+[engineio]https://github.com/LearnBoost/engine.io
+
+
+h2(#websocket-server). WebSocket Server
+
+These websocket implementations require a server-side component to run. The Node
+SocketIO module is the server module that also distributes the client side
+module, and SockJS is broken into a server module and client side javascript.
+
+
+h2(#depends). WebSockets in Perl
+
+We can use them in Perl!
+
+* "SockJS":sockjs-perl is the Perl SockJS server to compliment the javascript
+  SockJS client
+* "PocketIO":pocketio is the Perl Socket.IO server
+
+[sockjs-pl]https://github.com/vti/sockjs-perl
+[pocketio]https://github.com/vti/pocketio.git
+
+But, it's not, not painful.
+
+h2(#problems). Problems
+
+* Make sure to turn chunking off on the SockJS instance, otherwise:
+
+<pre>
+4f
+{"origins":["*:*"],"entropy":3165083279,"websocket":true,"cookie_needed":false}
+0
+</pre>
+
+Will be your output on the websocket. This is chunked return from Twiggy, which
+is returned because Twiggy returns via HTTP1.1 by default.
