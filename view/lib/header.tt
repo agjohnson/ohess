@@ -21,13 +21,13 @@
   </head>
   <body>
 
-    <div id="header">
+    <!--<div id="header">
       <div class="row">
         <div class="w12 ohess">
           <span class="oh">oh</span><span class="ess">ess</span>
         </div>
       </div>
-    </div>
+    </div>-->
 
       [% PROCESS 'lib/nav.tt' %]
 

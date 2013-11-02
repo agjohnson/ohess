@@ -2,22 +2,51 @@
 
 <div class="row">
 
-    <div class="col-2">
+  <div class="col col-3">
+    <h1 class="title">Publications</h1>
+  </div>
 
-        <h2>Publications</h2>
-        <p>&nbsp;</p>
-        [% IF pubs %]
-            [% FOREACH article = pubkeys %]
-        <div>
-          <h3><a href="/pub/[% article %]">[% pubs.$article.title %]</a></h3>
-                [% IF pubs.$article.summary;
-                    pubs.$article.summary.html();
-                END; %]
-            [% END %]
-        </div>
-        [% END %]
+  <div class="col col-2">
+[% IF pubs %]
+  [% FOREACH article = pubkeys %]
+
+    [% IF pubs.$article.background %]
+    <div class="article-image" style="background-image: url('[% pubs.$article.background %]');">
+      <div>
+        <h3><b>[% pubs.$article.title %]</b></h3>
+        [% pubs.$article.summary.html() %]
+
+        <p>
+          <a href="/pub/[% article %]">Read&nbsp;More</a>
+        </p>
+      </div>
+    [% ELSE %]
+    <div>
+      <h3><a href="/pub/[% article %]">[% pubs.$article.title %]</a></h3>
+      [% pubs.$article.summary.html() %]
+    [% END %]
     </div>
 
+  [% END %]
+[% END %]
+  </div>
+
+  <div class="col col-1">
+    <div id="about-sidebar">
+      <img src="http://s.gravatar.com/avatar/2f9b8700bc745b0334f6ce49e9d3d448?s=120" class="avatar" align="right" />
+
+      <p>
+        <b>Anthony Johnson</b><br />
+        Developer and Operations Engineer, sometimes both at the same time. I
+        like to climb things.
+      </p>
+
+      <p>
+        <a href="/about">More</a>
+      </p>
+    </div>
+
+  </div>
 </div>
 
 [% PROCESS 'lib/footer.tt' date="$date"%]

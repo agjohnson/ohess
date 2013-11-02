@@ -1,22 +1,23 @@
+<div class="col-3">
+
+h1(title). Projects
+
+</div>
+
 <div class="col-1">
-
-h2. csistck
-
-"csistck":/projects/csistck is a very basic server configuration management
-library written with Perl.
 
 h2. smptbin
 
 "smtpbin":/projects/smtpbin is a web application and API for integration and QA
 testing email applications.
 
+h2. csistck
+
+"csistck":/projects/csistck is a very basic server configuration management
+library written with Perl.
+
 </div>
 <div class="col-1">
-
-h2. avocado
-
-"avocado":/projects/avocado is a framework that was built as an exercise in
-organizing a framework.
 
 h2. snooze
 

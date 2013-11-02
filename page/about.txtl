@@ -1,9 +1,29 @@
-h1. About
+<!-- Break row -->
+</div>
 
-DevOps from Portland, OR. You can find online at:
+<div class="row">
 
-* "agjohnson @ Github":http://github.com/agjohnson
-* "agj @ Bitbucket":http://bitbucket.org/agj
-* "agj @ CPAN":http://search.cpan.org/~agj
-* "and on Google+":https://plus.google.com/u/0/115639307562817258721
+  <div class="col-2">
+
+h1(title). About
+
+h2(subtitle). Anthony Johnson, "@agjhnsn":http://twitter.com/agjhnsn
+
+Developer and Operations Engineer residing in Portland, Oregon.  I like to climb
+things.
+
+"Github":github - "CPAN":cpan - "Google+":google - "Bitbucket":bitbucket
+
+[github]http://github.com/agjohnson
+[cpan]http://search.cpan.org/~agj
+[bitbucket]http://bitbucket.org/agj
+[google]https://plus.google.com/u/0/115639307562817258721
+
+
+  </div>
+  <div class="col col-1">
+    <div id="about-sidebar">
+      <img src="http://s.gravatar.com/avatar/2f9b8700bc745b0334f6ce49e9d3d448?s=120" class="avatar" align="left" />
+    </div>
+  </div>
 

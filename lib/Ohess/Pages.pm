@@ -17,12 +17,13 @@ get '^[/]*$' => sub {
     return sub {
         my $respond = shift;
         my $ret = Plack::Response->new();
-        $ret->redirect('/index', 302);
+        $ret->redirect('/pub', 302);
         return $respond->(render $ret);
     };
 };
 
-get '^/index$' => sub {
+# TODO do something with the old index page
+get '^/pages$' => sub {
     return sub {
         my $respond = shift;
         my $meta = Ohess::Config::page('index');
