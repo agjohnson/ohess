@@ -70,7 +70,31 @@ body {
 .row .p10 { margin-left: 655px; }
 .row .p11 { margin-left: 720px; }
 
-@media screen and (max-width: 780px) {
+@media screen and (min-width: 620px) and (max-width: 800px) {
+    .inner, .row {
+        width: 600px;
+    }
+
+    .row .w1 { width: 40px; }
+    .row .w2 { width: 90px; }
+    .row .w3 { width: 140px; }
+    .row .w4, .row .col-1 { width: 190px; }
+    .row .w5 { width: 240px; }
+    .row .w6 { width: 290px; }
+    .row .w7 { width: 340px; }
+    .row .w8, .row .col-2 { width: 390px; }
+    .row .w9 { width: 440px; }
+    .row .w10 { width: 490px; }
+    .row .w11 { width: 540px; }
+    .row .w12, .row .col-3 { width: 590px; }
+
+    #about-sidebar img.avatar {
+        display: block !important;
+        margin: 5px 5px 15px 95px !important;
+    }
+}
+
+@media screen and (max-width: 620px) {
     .inner, .row {
         width: auto;
         position: relative;
@@ -143,6 +167,7 @@ a:active {
 
 /* Nav */
 #nav {
+    margin: 3em 0em 3em 0em;
     text-transform: uppercase;
     line-height: .95em;
     font-family: 'Droid Sans Mono', monospace;
@@ -206,6 +231,10 @@ a:active {
     font-family: 'Droid Sans Mono', monospace;
     font-size: 1.2em;
     text-transform: uppercase;
+}
+
+.row h1.title {
+    margin-bottom: 1em;
 }
 
 .row h1 > b, .row h1 > i, .row h1 > em {
@@ -330,6 +359,53 @@ a:active {
 .row > div img {
     width: 100%;
     box-shadow: 0px 0px 4px -1px #bbb;
+}
+
+/* Custom blocks */
+
+.row div.article-image {
+    background-color: #221;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+}
+
+.row div.article-image > div {
+    margin: .2em 0em 1em 0em;
+    padding: 1em .3em .5em .3em;
+    background: rgba(0,0,0,0.3);
+}
+
+.row div.article-image p,
+.row div.article-image h1,
+.row div.article-image h2,
+.row div.article-image h3 {
+    color: #ffe;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.row div.article-image a {
+    text-decoration: none;
+    color: #998;
+    font-size: .9em;
+    font-style: italic;
+}
+
+#about-sidebar {
+    margin: 0em 0em 1em 0em;
+    overflow: auto;
+}
+
+#about-sidebar > .avatar {
+    width: 90px;
+    margin: .2em .2em .2em .5em;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+#about-sidebar > p {
+    font-style: italic;
+    font-size: .8em;
 }
 
 /* Footer */
