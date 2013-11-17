@@ -1,4 +1,11 @@
 ---
+responsive-email-content:
+  title: Responsive Email Content
+  tags: [ email, responsive, design ]
+  date: 20131115
+  summary: !perl/Ohess::Textile >
+    How to add responsive email content into your responsive email design.
+
 plack-anyevent-redis-and-sockjs:
   title: Plack, AnyEvent, Redis and SockJS
   tags: [ perl, anyevent, websockets ]

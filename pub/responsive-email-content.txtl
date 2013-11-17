@@ -1,0 +1,150 @@
+h1. Responsive Email Content
+
+So, I found myself wearing a hat that I've haven't had to wear in a long time.
+I was working on an email design project to produce a responsive template --
+responsive in both the layout and in displaying links on desktop and mobile
+devices.
+
+I needed to find a solution that allowed us to display different links between
+the mobile and desktop view in our mailings. Without the ability to use
+Javascript, the only solution to displaying content in a responsive manner is to
+duplicate the content and use CSS "media queries":mediaquery to toggle
+which block of content is displayed. In our case, the content was tracking
+links, but this applies to any inline element.
+
+One method for implementing responsive content would have been to use two
+wrapping parent blocks for every piece of content that needed to differ. For
+most use cases this should suffice, but for our use case, this would have been
+any piece of content with a link -- that is, the entire mailing.
+
+[mediaquery]https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries
+
+h2. Responsive Content
+
+Attempting to avoid needless duplication of content, the solution I came to is
+to create two inline elements -- using only the differing content -- and
+toggling display between the elements using rules in a media query. The
+hardest part about executing this is client support.
+
+This solution does have several deficiencies, due to browser inconsistencies.
+Gmail and Outlook.com force inline CSS styling and don't respect media queries,
+which is required to toggle the links. Therefore, these clients will always
+target desktop -- at least this example does, the styles could be written to
+target mobile by default instead too.
+
+The initial, naive thought was that this should work:
+
+<script src="https://gist.github.com/agjohnson/7295917/9d878165ae4ceca168b0bdcb349dc3aa083ddc40.js?file=email.html"></script>
+
+Unfortunately, this is the beginning of the rabbit hole -- this isn't going to
+work.  Major clients work, but Gmail and Outlook show both blocks, because they
+don't respect embedded CSS. These rules will need to be replicated inline.
+
+<!-- Screenshot here -->
+
+Gmail Android is particularly horrible, because it doesn't respect rules to hide
+inline elements. Because it drops inline styling, the link wrappers need to be
+converted to block elements.
+
+The elements also need more obscure styling to help hide the block, because
+Gmail drops many inline styling attributes, including @display: none@.
+Similarly, the media query needs high precedence rules to negate all these
+styles.
+
+<script src="https://gist.github.com/agjohnson/7295917/37d7c38574266d090ddd2bc01c07ff6eda57804a.js?file=email.html"></script>
+
+At this point, all major clients are showing only one set of blocks, but because
+we converted the inline elements into block elements, some clients are
+displaying broken lines.
+
+
+Fixing these issues is what makes things *really* ugly. The block elements can't
+simply set @display: inline@ or Gmail will drop formatting on them again,
+showing them. Instead, @display: inline-block@ can be used, but this will cause
+Outlook.com to show the blocks.
+
+Knowing that all other desktop clients will at least hide the block, Gmail can
+be targeted with @display: inline-block@ and some extra formatting and Outlook
+can be targeted with conditional comment blocks.
+
+<!-- Beware: hack to fix Text::Textile comment block display -->
+
+bc. <<!-- -->!--[if !mso]><<!-- -->!-- -- -->Mobile content<<!-- -->!--<![endif]-->
+
+Outlook.com doesn't like version comparisons in the conditional expression, and
+the middle, seemingly superfluous comment block is required, as Outlook.com
+doesn't work with Microsoft's own standard conditional comment directives and
+will display a blank page -- of course.
+
+Two more loose ends that this doesn't reach is the IE6-backed rendering of
+Outlook 2000 and 2003. These clients still treat the inline-block as a block, so
+this requires a true hack to fix the spacing issue.  This hack, placed after the
+@display: inline-block@ inline rule, will only run on IE6:
+
+<pre>
+*display: inline !important;
+</pre>
+
+Lastly, Yahoo finally speaks up and displays its own CSS inconsistencies:
+"it displays whatever the hell it wants to":yahoo-css. To address this, all
+rules inside media queries now also need to use attribute selectors, instead of
+class selectors. Yahoo doesn't support attribute selectors, and will disregard
+these rules entirely.
+
+[yahoo-css]http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/
+
+<script src="https://gist.github.com/agjohnson/7295917/8ebd9e9e3ffd183bdbddc9405c4ddacbf3b34217.js?file=email.html"></script>
+
+At this point, the only issues are spacing issues, which can be resolved for the
+most part by reducing links to a single line, without unneeded spacing.
+
+
+<!-- Screenshot here -->
+
+
+h2. Solution
+
+<script src="https://gist.github.com/agjohnson/7295917/8ee9fd4d8ac00d95aa7e91aeffaa92c5f0d3a311.js?file=email.html"></script>
+
+Below is a close-up of the link replacement code, expanded out for display only:
+
+<pre>
+<span class="desktop">
+ <a href="/tracking/foobar">Desktop</a>
+</span>
+<!--[if !mso]><!-- -- -->
+<div class="mobile-link" style="
+    display: inline-block !important;
+    *display: inline !important;
+    max-height: 0px;
+    width: 0px;
+    overflow: hidden;
+    font-size: 0px;">
+  <a href="/tracking/mobile-foobar">Mobile</a>
+</div>
+<!--<![endif]-->
+</pre>
+
+Through this project, I learned a great deal. Besides learning how to apply
+these obscure rules to email styling, I also learned that Gmail is *the worst*
+-- more difficult to deal with than even Microsoft's Outlook line. I can't say I
+learned that Microsoft is awfully inconsistent, but that notion was at least
+lamented. Inconsistencies between rendering engines used in Outlook vary wildly,
+Outlook.com and Outlook don't support the same conditionals, and I'm not even
+sure Windows Mobile knew what it was doing.
+
+The only thing that made this experience tolerable were the resources available
+for testing. Trying to design all of this without "Litmus":litmus, or another
+email testing service, would have been an awful, awful experience. Another
+invaluable tool was "Campaign Monitor's CSS support":campaign-css documents and
+their blog posts directed at email design issues. These offered a lot of clues
+and direction towards troubleshooting issues I was noticing.
+
+The layout rework was rather simple, there were several hangups that I hit, but
+both "Email on Acid":emailonacid and "Campaign Monitor":campaignmonitor were a
+great resource for all the problems I encountered.
+
+[emailonacid]http://emailonacid.com
+[litmus]http://litmus.com
+[campaignmonitor]http://www.campaignmonitor.com/css/
+[campaign-css]http://www.campaignmonitor.com/css/
