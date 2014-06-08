@@ -1,4 +1,11 @@
 ---
+zeromq-sockets-perl:
+  title: ZeroMQ Sockets and Perl
+  tags: [ ØMQ, perl ]
+  date: 20140607
+  summary: !perl/Ohess::Textile >
+    Using ZeroMQ sockets in your Perl application.
+
 responsive-email-content:
   title: Responsive Email Content
   tags: [ email, responsive, design ]
