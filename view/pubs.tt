@@ -36,14 +36,18 @@
       <img src="http://s.gravatar.com/avatar/2f9b8700bc745b0334f6ce49e9d3d448?s=120" class="avatar" align="right" />
 
       <p>
-        <b>Anthony Johnson</b><br />
+        <span id='about-name'>Anthony&nbsp;Johnson</span>
+        <span id='about-tooter'><a href="https://twitter.com/agjhnsn">@agjhnsn</a></span>
+        <br />
         Developer and Operations Engineer, sometimes both at the same time. I
-        like to climb things.
+        help organize <a href="http://pdx.pm.org">pdx.pm</a> and enjoy
+        modern Perl. I also like to climb things.
       </p>
 
       <p>
         <a href="/about">More</a>
       </p>
+
     </div>
 
   </div>
