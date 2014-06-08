@@ -1,0 +1,15 @@
+requires 'perl', '5.010';
+requires 'LWP::Simple', '0';
+requires 'LWP::UserAgent', '0';
+requires 'JSON', '0';
+requires 'Template', '0';
+requires 'Text::Textile', '0';
+requires 'File::stat', '0';
+requires 'FindBin', '0';
+requires 'Getopt::Long', '0';
+requires 'Plack', '0';
+requires 'Plack::Middleware::Static', '0';
+requires 'YAML', '0';
+requires 'Scalar::Util', '0';
+requires 'App::local::lib::helper', '0';
+requires 'Twiggy', '0';

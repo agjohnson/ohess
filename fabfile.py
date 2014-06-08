@@ -11,7 +11,7 @@ import os.path
 env.www_host = 'prod@a.app.ohess.org'
 env.build_path = '/srv/www/ohess'
 env.env_path = '/srv/www/envs/bootstrap'
-env.shell = '/bin/bash -l -c'
+env.shell = '/bin/sh -c'
 
 @task
 @hosts(env.www_host)
@@ -30,7 +30,7 @@ def bootstrap():
     with cd(env.env_path):
         env.cpanm = '{env_path}/bin/cpanm'.format(**env)
         if not exists(env.cpanm):
-            run('curl -Lko {cpanm} "http://cpanmin.us"'.format(**env))
+            run('curl -Lko {cpanm} http://cpanmin.us'.format(**env))
             run('chmod +x {cpanm}'.format(**env))
         run('{cpanm} -nL . ExtUtils::MakeMaker Module::Build'.format(**env))
         run('{cpanm} -nL . Module::Install'.format(**env))
@@ -54,7 +54,6 @@ def deploy():
     with localenv():
         with cd(env.build_path):
             run('carton install')
-            #run('/usr/pkg/bin/perl -MCarton::CLI -e \'Carton::CLI->new->run(@ARGV)\' install')
     # TODO replace with twiggy reload
     #sudo('/etc/init.d/lighttpd reload')
     #run("varnishadm -T :2000 'url.purge .'")
