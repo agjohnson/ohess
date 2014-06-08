@@ -94,12 +94,13 @@ sub process_textile {
             say 'RESPOND: ', Dumper($respond);
 
             # File exists and is readable, open and process
-            open(TXTL, $filename);
-            my $txtl_h = join('', <TXTL>);
+            open(my $fh, $filename);
+            binmode($fh, ':utf8');
+            my $txtl_h = join('', <$fh>);
             my $txtl = Text::Textile->new();
             $txtl->{_line_close} = '';
             my $body = $txtl->process($txtl_h);
-            close(TXTL);
+            close($fh);
 
             # Get page meta data, build args
             $meta = Ohess::Config::pub($id);
