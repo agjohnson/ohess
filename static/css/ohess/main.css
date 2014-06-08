@@ -90,8 +90,13 @@ body {
 
     #about-sidebar img.avatar {
         display: block !important;
-        margin: 5px 5px 15px 95px !important;
+        margin: 5px 5px 15px 65px !important;
     }
+
+    #about-sidebar #about-name::after {
+        content: none !important;
+    }
+
 }
 
 @media screen and (max-width: 620px) {
@@ -393,11 +398,29 @@ a:active {
 #about-sidebar {
     margin: 0em 0em 1em 0em;
     overflow: auto;
+    text-align: right;
+}
+
+#about-sidebar a {
+    text-decoration: none;
+}
+
+#about-sidebar #about-name {
+    font-weight: bold;
+}
+
+#about-sidebar #about-name::after {
+    content: ", ";
+}
+
+#about-sidebar #about-tooter {
+    font-weight: bold;
 }
 
 #about-sidebar > .avatar {
-    width: 90px;
+    width: 120px;
     margin: .2em .2em .2em .5em;
+    float: none;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
